@@ -13,8 +13,7 @@ const activeProject = ref(null)
 const currentImageIdx = ref(0)
 const slideDir = ref('right')
 
-const currentImage = () =>
-  activeProject.value?.images[currentImageIdx.value] ?? null
+const currentImage = () => activeProject.value?.images[currentImageIdx.value] ?? null
 
 function openModal(project) {
   activeProject.value = project
@@ -156,7 +155,10 @@ onUnmounted(() => {
 
               <!-- Client identity -->
               <div class="ms-project-client">
-                <div class="ms-project-logo" aria-hidden="true">TM</div>
+                <div class="ms-project-logo" aria-hidden="true">
+                  <img v-if="project.logo" :src="project.logo" :alt="project.client" class="ms-project-logo__img" />
+                  <span v-else>{{ project.name.split(' ').map(w => w[0]).slice(0, 2).join('') }}</span>
+                </div>
                 <div>
                   <h3 class="ms-project-name">{{ project.name }}</h3>
                   <p class="ms-project-client-name">{{ project.client }}</p>
@@ -275,7 +277,10 @@ onUnmounted(() => {
                 {{ activeProject.type }}
               </span>
               <h3 class="ms-modal-title">{{ activeProject.name }}</h3>
-              <p class="ms-modal-client">{{ activeProject.client }}</p>
+              <div class="ms-modal-client-row">
+                <img v-if="activeProject.logo" :src="activeProject.logo" :alt="activeProject.client" class="ms-client-logo" />
+                <p class="ms-modal-client">{{ activeProject.client }}</p>
+              </div>
             </div>
             <button type="button" class="ms-modal-close" @click="closeModal" aria-label="Cerrar">
               <i class="pi pi-times" aria-hidden="true"></i>
@@ -286,12 +291,33 @@ onUnmounted(() => {
           <div class="ms-carousel">
             <Transition :name="`ms-slide-${slideDir}`" mode="out-in">
               <div :key="currentImageIdx" class="ms-carousel-slide">
-                <img
-                  v-if="currentImage()?.src"
-                  :src="currentImage().src"
-                  :alt="currentImage().label"
-                  class="ms-carousel-img"
-                />
+                <!-- Laptop frame — web & design projects -->
+                <div v-if="currentImage()?.src && activeProject.category !== 'mobile'" class="ms-laptop-wrap">
+                  <div class="ms-laptop-frame">
+                    <div class="ms-laptop-chrome">
+                      <div class="ms-chrome-dots">
+                        <span></span><span></span><span></span>
+                      </div>
+                      <div class="ms-chrome-url-bar">
+                        <span class="ms-chrome-url-text">{{ activeProject.url ?? 'metasoft.pe' }}</span>
+                      </div>
+                    </div>
+                    <div class="ms-laptop-screen">
+                      <img :src="currentImage().src" :alt="currentImage().label" class="ms-device-img" />
+                    </div>
+                  </div>
+                  <div class="ms-laptop-base"><div class="ms-laptop-hinge"></div></div>
+                </div>
+                <!-- Smartphone frame — mobile projects -->
+                <div v-else-if="currentImage()?.src && activeProject.category === 'mobile'" class="ms-phone-wrap">
+                  <div class="ms-phone-frame">
+                    <div class="ms-phone-notch"></div>
+                    <div class="ms-phone-screen">
+                      <img :src="currentImage().src" :alt="currentImage().label" class="ms-device-img" />
+                    </div>
+                    <div class="ms-phone-home-bar"></div>
+                  </div>
+                </div>
                 <div
                   v-else
                   class="ms-carousel-placeholder"
@@ -559,6 +585,14 @@ onUnmounted(() => {
   color: #fff;
   flex-shrink: 0;
   letter-spacing: -0.02em;
+  overflow: hidden;
+}
+
+.ms-project-logo__img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  padding: 2px;
 }
 
 .ms-project-name {
@@ -895,6 +929,22 @@ onUnmounted(() => {
   letter-spacing: -0.02em;
 }
 
+.ms-modal-client-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.ms-client-logo {
+  height: 28px;
+  width: 28px;
+  border-radius: 8px;
+  object-fit: contain;
+  flex-shrink: 0;
+  background: var(--ms-gradient-primary);
+  padding: 2px;
+}
+
 .ms-modal-client {
   font-size: 0.8rem;
   color: #64748B;
@@ -1145,5 +1195,186 @@ onUnmounted(() => {
   }
   .ms-carousel-nav--prev { left: 6px; }
   .ms-carousel-nav--next { right: 6px; }
+}
+
+/* ── Laptop mockup frame ─────────────────────────────────── */
+.ms-laptop-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  padding: 14px 20px 0;
+}
+
+.ms-laptop-frame {
+  width: 100%;
+  max-width: 620px;
+  background: #0d1117;
+  border: 2px solid #2d333b;
+  border-bottom: none;
+  border-radius: 10px 10px 0 0;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 1px rgba(255,255,255,0.04),
+    inset 0 0 0 1px rgba(255,255,255,0.02),
+    0 -6px 32px rgba(0,0,0,0.6);
+}
+
+/* Browser chrome bar */
+.ms-laptop-chrome {
+  height: 30px;
+  background: #161b22;
+  border-bottom: 1px solid #2d333b;
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  gap: 0;
+  flex-shrink: 0;
+}
+
+.ms-chrome-dots {
+  display: flex;
+  gap: 5px;
+  flex-shrink: 0;
+}
+
+.ms-chrome-dots span {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  display: block;
+}
+.ms-chrome-dots span:nth-child(1) { background: #FF5F57; }
+.ms-chrome-dots span:nth-child(2) { background: #FEBC2E; }
+.ms-chrome-dots span:nth-child(3) { background: #28C840; }
+
+.ms-chrome-url-bar {
+  flex: 1;
+  height: 17px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 99px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 10px;
+}
+
+.ms-chrome-url-text {
+  font-size: 0.55rem;
+  color: rgba(255,255,255,0.25);
+  letter-spacing: 0.03em;
+  font-family: system-ui, sans-serif;
+}
+
+/* Screenshot viewport — scrollable so users can explore the full page */
+.ms-laptop-screen {
+  width: 100%;
+  max-height: 310px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  line-height: 0;
+  scrollbar-width: thin;
+  scrollbar-color: #2d333b transparent;
+}
+
+.ms-laptop-screen::-webkit-scrollbar { width: 4px; }
+.ms-laptop-screen::-webkit-scrollbar-thumb {
+  background: #2d333b;
+  border-radius: 2px;
+}
+
+.ms-device-img {
+  width: 100%;
+  display: block;
+}
+
+/* Laptop base / keyboard chassis */
+.ms-laptop-base {
+  width: min(660px, calc(100% + 20px));
+  height: 10px;
+  background: linear-gradient(to bottom, #21262d, #161b22);
+  border-radius: 0 0 6px 6px;
+  border: 2px solid #2d333b;
+  border-top: none;
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding-bottom: 2px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.6);
+}
+
+.ms-laptop-hinge {
+  width: 52px;
+  height: 3px;
+  background: #2d333b;
+  border-radius: 0 0 3px 3px;
+}
+
+@media (max-width: 640px) {
+  .ms-laptop-wrap { padding: 8px 10px 0; }
+  .ms-laptop-chrome { height: 22px; }
+  .ms-chrome-dots span { width: 6px; height: 6px; }
+  .ms-laptop-screen { max-height: 200px; }
+  .ms-laptop-base { height: 7px; }
+}
+
+/* ── Smartphone mockup frame ─────────────────────────────────────────────── */
+.ms-phone-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  padding: 16px 0;
+}
+.ms-phone-frame {
+  width: 210px;
+  background: #0d1117;
+  border: 2px solid #2d333b;
+  border-radius: 32px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow:
+    0 0 0 1px rgba(255, 255, 255, 0.05),
+    0 20px 60px rgba(0, 0, 0, 0.8),
+    inset 0 1px 0 rgba(255,255,255,0.07);
+  position: relative;
+}
+.ms-phone-notch {
+  width: 64px;
+  height: 18px;
+  background: #0d1117;
+  border-radius: 0 0 14px 14px;
+  margin: 6px auto 0;
+  position: relative;
+  z-index: 2;
+  border: 1.5px solid #2d333b;
+  border-top: none;
+  flex-shrink: 0;
+}
+.ms-phone-screen {
+  width: 100%;
+  max-height: 360px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  scrollbar-width: thin;
+  scrollbar-color: #2d333b transparent;
+}
+.ms-phone-screen::-webkit-scrollbar { width: 3px; }
+.ms-phone-screen::-webkit-scrollbar-thumb { background: #2d333b; border-radius: 2px; }
+.ms-phone-screen .ms-device-img { display: block; width: 100%; }
+.ms-phone-home-bar {
+  width: 44px;
+  height: 4px;
+  background: #2d333b;
+  border-radius: 2px;
+  margin: 8px auto;
+  flex-shrink: 0;
+}
+
+@media (max-width: 640px) {
+  .ms-phone-frame { width: 170px; }
+  .ms-phone-screen { max-height: 280px; }
 }
 </style>

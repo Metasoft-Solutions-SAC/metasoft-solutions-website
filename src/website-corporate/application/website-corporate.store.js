@@ -23,6 +23,13 @@ import lizzoPagos          from '../../assets/img/lizzo/4.pagos-lizzo.webp'
 import lizzoFinanciamiento from '../../assets/img/lizzo/5.financiamiento-lizzo.webp'
 import lizzoDocumentos     from '../../assets/img/lizzo/6.documentos-lizzo.webp'
 
+// ── Tracker Mobility App (móvil) — capturas de pantalla ────────────────────
+import trackerMobileOrdenes from '../../assets/img/tracker-mobility-mobile/1.ordenes-tracker-mobile.webp'
+
+// ── Logos de clientes ─────────────────────────────────────────────────────────
+import logoTrackerMobility from '../../assets/img/logo-clientes/logo-tracker-mobility.png'
+import logoMillennium      from '../../assets/img/logo-clientes/logo-millennium.jpg'
+
 /**
  * useWebsiteCorporateStore
  * APPLICATION LAYER — Pinia Composition Store. Single source of truth for all
@@ -215,8 +222,10 @@ export const useWebsiteCorporateStore = defineStore('website-corporate', () => {
       id: 'tracker-erp',
       name: 'ERP Tracker Mobility',
       client: 'Tracker Mobility SAC',
+      logo: logoTrackerMobility,
       type: 'Plataforma Web Empresarial',
       category: 'web',
+      url: 'tracker.metasoft.pe',
       year: '2025',
       excerpt: 'Sistema integral para gestionar verificaciones domiciliarias, órdenes de servicio y reportes. Conecta administradores, empresas clientes y verificadores de campo con trazabilidad total del proceso.',
       tags: ['Vue.js', 'Spring Boot', 'PostgreSQL', 'JWT', 'Docker'],
@@ -248,8 +257,10 @@ export const useWebsiteCorporateStore = defineStore('website-corporate', () => {
       id: 'tracker-mobile',
       name: 'Tracker Mobility App',
       client: 'Tracker Mobility SAC',
+      logo: logoTrackerMobility,
       type: 'Aplicación Móvil Flutter',
-      category: 'mobile',
+      category: 'web',
+      url: 'download.tracker.metasoft.pe',
       year: '2025',
       excerpt: 'App móvil para verificadores en campo que digitaliza el proceso completo de verificación domiciliaria. Formularios inteligentes multi-paso, captura de evidencias y modo offline robusto.',
       tags: ['Flutter', 'Dart', 'REST API', 'SQLite', 'JWT'],
@@ -265,18 +276,17 @@ export const useWebsiteCorporateStore = defineStore('website-corporate', () => {
         'Estadísticas de productividad personal del verificador'
       ],
       images: [
-        { label: 'Pantalla de órdenes asignadas', src: null },
-        { label: 'Formulario de verificación multi-paso', src: null },
-        { label: 'Captura de evidencias fotográficas', src: null },
-        { label: 'Perfil y estadísticas del verificador', src: null }
+        { label: 'Pantalla de órdenes asignadas', src: trackerMobileOrdenes }
       ]
     },
     {
       id: 'lizzo-ux',
       name: 'Lizzo App',
       client: 'Millennium Mobility SAC',
+      logo: logoMillennium,
       type: 'Diseño UX/UI · Mockups',
       category: 'design',
+      url: 'lizzo.pe',
       year: '2025',
       excerpt: 'Diseño de interfaces móviles para la app de clientes de leasing vehicular Lizzo. Flujos de autenticación, gestión de pagos, solicitudes de financiamiento y acceso a información del vehículo y beneficios.',
       tags: ['Figma', 'UX Design', 'Mobile UI', 'Prototyping'],
