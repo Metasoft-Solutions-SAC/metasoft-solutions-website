@@ -1,0 +1,28 @@
+{
+  "name": "metasoft-solutions-website",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite-ssg build",
+    "build:spa": "vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@primeuix/themes": "^2.0.3",
+    "aos": "^2.3.4",
+    "axios": "^1.13.6",
+    "pinia": "^3.0.4",
+    "primeflex": "^4.0.0",
+    "primeicons": "^7.0.0",
+    "primevue": "^4.5.4",
+    "vite-ssg": "^0.23.8",
+    "vue": "^3.5.25",
+    "vue-router": "^5.0.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^6.0.2",
+    "vite": "^7.3.1"
+  }
+}

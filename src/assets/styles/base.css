@@ -1,0 +1,89 @@
+/* ============================================================
+   base.css — Reset & normalize
+   ============================================================ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--ms-font-family);
+  font-size: var(--ms-font-size-base);
+  line-height: var(--ms-leading-normal);
+  color: var(--ms-text-primary);
+  background-color: var(--ms-bg-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+#app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  background-color: var(--ms-bg-primary);
+}
+
+img, svg, video {
+  display: block;
+  max-width: 100%;
+}
+
+a {
+  color: var(--ms-brand-secondary);
+  text-decoration: none;
+  transition: color var(--ms-transition-fast);
+}
+
+a:hover {
+  color: var(--ms-text-primary);
+}
+
+button {
+  font-family: var(--ms-font-family);
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+input, textarea, select {
+  font-family: var(--ms-font-family);
+}
+
+::selection {
+  background-color: var(--ms-brand-primary);
+  color: var(--ms-text-primary);
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+::-webkit-scrollbar-track {
+  background: var(--ms-bg-primary);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--ms-brand-primary);
+  border-radius: 3px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--ms-brand-secondary);
+}
+
+/* Focus ring */
+:focus-visible {
+  outline: 2px solid var(--ms-brand-secondary);
+  outline-offset: 3px;
+}

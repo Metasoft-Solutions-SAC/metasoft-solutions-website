@@ -1,0 +1,222 @@
+/* ============================================================
+   components.css — Estilos de componentes compartidos (Premium Navy)
+   ============================================================ */
+
+/* Keyboard navigation — focus indicator */
+:focus-visible {
+  outline: 2px solid var(--ms-brand-primary);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.ms-btn:focus-visible {
+  outline: 2px solid var(--ms-brand-primary);
+  outline-offset: 3px;
+}
+
+a:focus-visible {
+  outline: 2px solid var(--ms-brand-primary);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+/* Buttons */
+.ms-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--ms-spacing-sm);
+  padding: 0.625rem 1.25rem;
+  border-radius: 999px; /* Pill buttons for modern look */
+  font-family: var(--ms-font-family);
+  font-size: var(--ms-font-size-sm);
+  font-weight: 500;
+  line-height: 1.2;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all var(--ms-transition-fast);
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.ms-btn-primary {
+  background: var(--ms-text-primary);
+  color: var(--ms-bg-primary);
+  border-color: transparent;
+  box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.2);
+}
+
+.ms-btn-primary:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 14px 0 rgba(255, 255, 255, 0.39);
+  background: #ffffff;
+}
+
+.ms-btn-glow {
+  background: var(--ms-gradient-primary);
+  color: #fff;
+  border: none;
+  box-shadow: var(--ms-shadow-brand);
+  position: relative;
+  overflow: hidden;
+}
+
+.ms-btn-glow::after {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(rgba(255,255,255,0.2), transparent);
+  opacity: 0;
+  transition: opacity var(--ms-transition-fast);
+}
+
+.ms-btn-glow:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 12px 32px rgba(14, 165, 233, 0.5);
+}
+.ms-btn-glow:hover::after {
+  opacity: 1;
+}
+
+.ms-btn-outline {
+  background: transparent;
+  color: var(--ms-text-primary);
+  border: 1px solid var(--ms-border-color-2);
+  backdrop-filter: blur(8px);
+}
+
+.ms-btn-outline:hover {
+  background: rgba(255, 255, 255, 0.05);
+  border-color: var(--ms-brand-primary); /* Glow hover border */
+  color: #fff;
+  box-shadow: inset 0 0 12px rgba(14, 165, 233, 0.1);
+}
+
+.ms-btn-lg {
+  padding: 0.875rem 1.75rem;
+  font-size: var(--ms-font-size-base);
+}
+
+/* Premium Navy Cards */
+.ms-card {
+  background: var(--ms-bg-card-solid);
+  border: 1px solid var(--ms-border-color);
+  border-radius: var(--ms-border-radius-lg);
+  padding: var(--ms-spacing-xl);
+  transition: all var(--ms-transition-base);
+  position: relative;
+  overflow: hidden; /* For bottom glow */
+  z-index: 1;
+}
+
+/* Bottom Glow effect for cards (As seen in reference images) */
+.ms-card::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, var(--ms-brand-primary), transparent);
+  opacity: 0; /* Hidden by default */
+  transition: opacity var(--ms-transition-base);
+}
+
+.ms-card:hover {
+  background: var(--ms-bg-card-hover);
+  border-color: var(--ms-border-color-2);
+  transform: translateY(-2px);
+  box-shadow: var(--ms-shadow-lg);
+}
+
+/* Specific glowing active card style */
+.ms-card.ms-card--active {
+  border-color: rgba(14, 165, 233, 0.3);
+  box-shadow: 0 8px 32px rgba(14, 165, 233, 0.1);
+}
+.ms-card.ms-card--bottom-glow::after {
+  opacity: 1; /* Always glowing bottom edge */
+}
+.ms-card:hover::after {
+  opacity: 1; /* Glow on hover for normal cards */
+}
+
+/* Badges */
+.ms-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.375rem;
+  padding: 0.375rem 0.875rem;
+  border-radius: 999px;
+  font-size: var(--ms-font-size-xs);
+  font-weight: 500;
+  border: 1px solid rgba(14, 165, 233, 0.2); /* Cyan border */
+  background: rgba(14, 165, 233, 0.05); /* Cyan tint */
+  color: var(--ms-brand-primary);
+  backdrop-filter: blur(8px);
+  transition: all var(--ms-transition-fast);
+}
+
+.ms-badge:hover {
+  color: #fff;
+  background: rgba(14, 165, 233, 0.15);
+  border-color: rgba(14, 165, 233, 0.4);
+}
+
+/* Glowing dot for headers */
+.ms-badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--ms-brand-primary);
+  box-shadow: 0 0 8px var(--ms-brand-primary);
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.5; transform: scale(0.8); }
+}
+
+/* Refined Square Icon Box (As in reference images) */
+.ms-icon-box {
+  width: 44px;
+  height: 44px;
+  border-radius: 12px;
+  background: rgba(14, 165, 233, 0.1);
+  border: 1px solid rgba(14, 165, 233, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.25rem;
+  color: var(--ms-brand-primary);
+  flex-shrink: 0;
+  transition: all var(--ms-transition-base);
+}
+
+.ms-card:hover .ms-icon-box {
+  background: rgba(14, 165, 233, 0.2);
+  color: var(--ms-brand-secondary);
+  box-shadow: 0 0 16px rgba(14, 165, 233, 0.2);
+  transform: scale(1.05);
+}
+
+/* Tag */
+.ms-tag {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem 0.625rem;
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--ms-border-color);
+  border-radius: 6px;
+  font-size: var(--ms-font-size-xs);
+  font-weight: 500;
+  color: var(--ms-text-secondary);
+  transition: all var(--ms-transition-fast);
+}
+.ms-tag:hover {
+  background: rgba(255,255,255,0.08);
+  color: var(--ms-text-primary);
+}
+
+

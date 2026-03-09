@@ -1,0 +1,51 @@
+/* ============================================================
+   typography.css — Jerarquía tipográfica Metasoft
+   ============================================================ */
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--ms-font-family);
+  font-weight: 700;
+  line-height: var(--ms-leading-tight);
+  color: var(--ms-text-primary);
+  letter-spacing: -0.02em; /* Tighter tracking for premium feel */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+h1 { font-size: clamp(var(--ms-font-size-4xl), 7vw, var(--ms-font-size-7xl)); font-weight: 800; }
+h2 { font-size: clamp(var(--ms-font-size-3xl), 5vw, var(--ms-font-size-5xl)); font-weight: 700; }
+h3 { font-size: clamp(var(--ms-font-size-2xl), 3.5vw, var(--ms-font-size-4xl)); font-weight: 600; }
+h4 { font-size: clamp(var(--ms-font-size-xl), 2.5vw, var(--ms-font-size-2xl)); font-weight: 600; }
+h5 { font-size: var(--ms-font-size-xl); font-weight: 500; }
+h6 { font-size: var(--ms-font-size-lg); font-weight: 500; }
+
+p {
+  font-size: var(--ms-font-size-base);
+  line-height: var(--ms-leading-relaxed);
+  color: var(--ms-text-secondary);
+}
+
+.text-xs   { font-size: var(--ms-font-size-xs); }
+.text-sm   { font-size: var(--ms-font-size-sm); }
+.text-lg   { font-size: var(--ms-font-size-lg); }
+.text-xl   { font-size: var(--ms-font-size-xl); }
+
+.font-semibold { font-weight: 600; }
+.font-bold     { font-weight: 700; }
+
+/* Gradient text utility */
+.text-gradient {
+  background: var(--ms-gradient-primary);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.text-primary   { color: var(--ms-text-primary) !important; }
+.text-secondary { color: var(--ms-text-secondary) !important; }
+.text-muted     { color: var(--ms-text-muted) !important; }
+.text-brand     { color: var(--ms-brand-primary) !important; }
+
+.text-center { text-align: center; }
+
+

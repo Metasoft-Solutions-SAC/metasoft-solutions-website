@@ -1,0 +1,11 @@
+/* ============================================================
+   index.css — Barrel: carga todos los estilos globales
+   ============================================================ */
+
+@import './variables.css';
+@import './base.css';
+@import './typography.css';
+@import './layout.css';
+@import './components.css';
+@import './utilities.css';
+@import './theme.css';

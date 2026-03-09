@@ -1,0 +1,54 @@
+# ══════════════════════════════════════════════════════════════
+# Cloudflare Pages — Project Configuration
+# Docs: https://developers.cloudflare.com/pages/
+# ══════════════════════════════════════════════════════════════
+
+# Nombre del proyecto en Cloudflare Pages
+name = "metasoft-solutions-website"
+
+# Fecha de compatibilidad del runtime de Cloudflare Workers
+# Mantener fija evita cambios inesperados en el runtime
+compatibility_date = "2026-03-08"
+
+# Directorio generado por el build (ViteSSG)
+pages_build_output_dir = "dist"
+
+# ══════════════════════════════════════════════════════════════
+# Variables de entorno
+# ══════════════════════════════════════════════════════════════
+# Las variables que empiezan con VITE_ se inyectan en el bundle
+# del frontend durante el build.
+#
+# Deben configurarse en:
+# Cloudflare Dashboard
+# → Pages
+# → Settings
+# → Environment Variables
+#
+# Producción:
+# VITE_PLATFORM_API_URL = https://api.metasoft.pe
+#
+# Preview:
+# VITE_PLATFORM_API_URL = https://api.metasoft.pe
+
+# ══════════════════════════════════════════════════════════════
+# Deploy con Wrangler CLI
+# ══════════════════════════════════════════════════════════════
+#
+# Instalar CLI
+# npm install -g wrangler
+#
+# Login
+# wrangler login
+#
+# Build del proyecto
+# npm run build
+#
+# Deploy producción
+# wrangler pages deploy dist --project-name=metasoft-solutions-website
+#
+# Deploy preview
+# wrangler pages deploy dist --project-name=metasoft-solutions-website --branch=preview
+#
+# Documentación:
+# https://developers.cloudflare.com/pages/platform/deployments/

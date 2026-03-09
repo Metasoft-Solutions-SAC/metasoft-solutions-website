@@ -1,0 +1,98 @@
+/* ============================================================
+   variables.css — Paleta corporativa Metasoft Solutions SAC (Premium Navy Theme)
+   ============================================================ */
+
+:root {
+  /* — Brand Colors — */
+  /* Main background deep navy blue */
+  --ms-bg-primary:       #0A0F1C; 
+  --ms-bg-card:          rgba(20, 31, 54, 0.4); 
+  --ms-bg-card-hover:    rgba(25, 38, 66, 0.6);
+  --ms-bg-card-solid:    #111A2E; 
+  --ms-bg-surface:       #0D1425;
+  --ms-bg-surface-2:     #141F36;
+
+  /* High contrast text */
+  --ms-text-primary:     #F8FAFC;
+  --ms-text-secondary:   #94A3B8; /* Slate 400 */
+  --ms-text-muted:       #64748B;
+  --ms-text-inverse:     #0A0F1C;
+
+  /* Vibrant accents (Cyan/Blue) */
+  --ms-brand-primary:    #0EA5E9; /* Sky blue */
+  --ms-brand-secondary:  #38BDF8; /* Cyan */
+  --ms-brand-hover:      #0284C7;
+
+  --ms-accent-success:   #10B981;
+  --ms-accent-warning:   #F59E0B;
+  --ms-accent-danger:    #EF4444;
+
+  /* — Gradients — */
+  --ms-gradient-primary: linear-gradient(135deg, #0EA5E9 0%, #38BDF8 100%);
+  --ms-gradient-brand-text: linear-gradient(135deg, #38BDF8, #0EA5E9);
+  --ms-gradient-glow:    radial-gradient(circle at center, rgba(56, 189, 248, 0.15) 0%, transparent 60%);
+
+  /* — Borders — */
+  --ms-border-color:     rgba(255, 255, 255, 0.06);
+  --ms-border-color-2:   rgba(255, 255, 255, 0.12);
+  --ms-border-glow:      rgba(14, 165, 233, 0.4);
+  
+  --ms-border-radius-sm: 8px;
+  --ms-border-radius:    12px;
+  --ms-border-radius-lg: 16px;
+  --ms-border-radius-xl: 24px;
+
+  /* — Shadows — */
+  --ms-shadow-sm:        0 1px 2px rgba(0, 0, 0, 0.5);
+  --ms-shadow:           0 4px 12px rgba(0, 0, 0, 0.6);
+  --ms-shadow-lg:        0 12px 32px rgba(0, 0, 0, 0.8);
+  --ms-shadow-glow:      0 0 24px rgba(14, 165, 233, 0.2);
+  --ms-shadow-brand:     0 8px 24px rgba(14, 165, 233, 0.3);
+
+  /* — Spacing — */
+  --ms-spacing-xs:  0.25rem;
+  --ms-spacing-sm:  0.5rem;
+  --ms-spacing-md:  1rem;
+  --ms-spacing-lg:  1.5rem;
+  --ms-spacing-xl:  2rem;
+  --ms-spacing-2xl: 3rem;
+  --ms-spacing-3xl: 4rem;
+  --ms-spacing-4xl: 6rem;
+  --ms-spacing-5xl: 8rem;
+
+  /* — Typography — */
+  --ms-font-family: 'Inter', system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --ms-font-size-xs:   0.75rem;
+  --ms-font-size-sm:   0.875rem;
+  --ms-font-size-base: 1rem;
+  --ms-font-size-lg:   1.125rem;
+  --ms-font-size-xl:   1.25rem;
+  --ms-font-size-2xl:  1.5rem;
+  --ms-font-size-3xl:  1.875rem;
+  --ms-font-size-4xl:  2.25rem;
+  --ms-font-size-5xl:  3rem;
+  --ms-font-size-6xl:  3.75rem;
+  --ms-font-size-7xl:  4.5rem;
+
+  /* — Line Heights — */
+  --ms-leading-tight:  1.1;
+  --ms-leading-snug:   1.2;
+  --ms-leading-normal: 1.5;
+  --ms-leading-relaxed: 1.6;
+
+  /* — Transitions — */
+  --ms-transition-fast:   150ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ms-transition-base:   300ms cubic-bezier(0.4, 0, 0.2, 1);
+  --ms-transition-slow:   500ms cubic-bezier(0.4, 0, 0.2, 1);
+
+  /* — Z-index — */
+  --ms-z-dropdown:  100;
+  --ms-z-sticky:    200;
+  --ms-z-overlay:   300;
+  --ms-z-modal:     400;
+  --ms-z-toast:     500;
+
+  /* — Layout — */
+  --ms-container-max: 1200px;
+  --ms-navbar-height: 80px;
+}

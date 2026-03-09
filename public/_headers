@@ -1,0 +1,88 @@
+# ══════════════════════════════════════════════════════════════
+# Cloudflare Pages — HTTP Headers
+# Seguridad + Performance + SEO
+# ══════════════════════════════════════════════════════════════
+
+# ──────────────────────────────────────────────────────────────
+# Seguridad global (OWASP recommended)
+# ──────────────────────────────────────────────────────────────
+/*
+  X-Content-Type-Options: nosniff
+  X-Frame-Options: SAMEORIGIN
+  Referrer-Policy: strict-origin-when-cross-origin
+  Permissions-Policy: camera=(), microphone=(), geolocation=(self), payment=()
+  Strict-Transport-Security: max-age=63072000; includeSubDomains; preload
+  Cross-Origin-Opener-Policy: same-origin
+  Cross-Origin-Resource-Policy: same-origin
+
+  # Content Security Policy
+  Content-Security-Policy:
+    default-src 'self';
+    script-src 'self' 'unsafe-inline' https:;
+    style-src 'self' 'unsafe-inline' https:;
+    img-src 'self' data: https:;
+    font-src 'self' https:;
+    connect-src 'self' https:;
+    frame-ancestors 'self';
+    base-uri 'self';
+    form-action 'self';
+
+# ──────────────────────────────────────────────────────────────
+# Assets generados por Vite (hash en filename)
+# ──────────────────────────────────────────────────────────────
+/assets/*
+  Cache-Control: public, max-age=31536000, immutable
+
+# ──────────────────────────────────────────────────────────────
+# Imágenes estáticas
+# ──────────────────────────────────────────────────────────────
+/*.png
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.jpg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.jpeg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.webp
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.svg
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+/*.ico
+  Cache-Control: public, max-age=2592000, stale-while-revalidate=86400
+
+# ──────────────────────────────────────────────────────────────
+# Fuentes
+# ──────────────────────────────────────────────────────────────
+/*.woff
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.woff2
+  Cache-Control: public, max-age=31536000, immutable
+
+/*.ttf
+  Cache-Control: public, max-age=31536000, immutable
+
+# ──────────────────────────────────────────────────────────────
+# SEO resources
+# ──────────────────────────────────────────────────────────────
+/robots.txt
+  Cache-Control: public, max-age=3600
+
+/sitemap.xml
+  Cache-Control: public, max-age=3600
+
+/site.webmanifest
+  Cache-Control: public, max-age=86400
+
+# ──────────────────────────────────────────────────────────────
+# HTML pages
+# ──────────────────────────────────────────────────────────────
+/*.html
+  Cache-Control: no-cache, no-store, must-revalidate
+
+/
+  Cache-Control: no-cache, no-store, must-revalidate
