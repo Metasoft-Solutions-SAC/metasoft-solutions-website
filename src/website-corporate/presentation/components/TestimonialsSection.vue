@@ -99,6 +99,15 @@ function onKeydown(e) {
   }
 }
 
+// ── Touch swipe for modal carousel ────────────────────────
+let touchStartX = 0
+function onTouchStart(e) { touchStartX = e.touches[0].clientX }
+function onTouchEnd(e) {
+  const delta = touchStartX - e.changedTouches[0].clientX
+  if (Math.abs(delta) < 40) return
+  delta > 0 ? nextImage() : prevImage()
+}
+
 onMounted(() => {
   nextTick(computeOffset)
   window.addEventListener('keydown', onKeydown)
@@ -143,6 +152,8 @@ onUnmounted(() => {
               v-for="(project, i) in testimonials"
               :key="project.id"
               :class="['ms-project-card', { 'ms-project-card--active': i === cardIdx }]"
+              @click="goToCard(i); stopAutoplay()"
+              style="cursor: pointer"
             >
               <!-- Card top bar -->
               <div class="ms-project-card__top">
@@ -288,7 +299,11 @@ onUnmounted(() => {
           </div>
 
           <!-- Carousel -->
-          <div class="ms-carousel">
+          <div
+            class="ms-carousel"
+            @touchstart.passive="onTouchStart"
+            @touchend.passive="onTouchEnd"
+          >
             <Transition :name="`ms-slide-${slideDir}`" mode="out-in">
               <div :key="currentImageIdx" class="ms-carousel-slide">
                 <!-- Laptop frame — web & design projects -->
