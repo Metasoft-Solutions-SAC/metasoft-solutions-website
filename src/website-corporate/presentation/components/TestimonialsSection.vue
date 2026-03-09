@@ -108,6 +108,16 @@ function onTouchEnd(e) {
   delta > 0 ? nextImage() : prevImage()
 }
 
+// ── Touch swipe for peek carousel ──────────────────────────
+let cardTouchStartX = 0
+function onCardTouchStart(e) { cardTouchStartX = e.touches[0].clientX }
+function onCardTouchEnd(e) {
+  const delta = cardTouchStartX - e.changedTouches[0].clientX
+  if (Math.abs(delta) < 40) return
+  stopAutoplay()
+  delta > 0 ? nextCard() : prevCard()
+}
+
 onMounted(() => {
   nextTick(computeOffset)
   window.addEventListener('keydown', onKeydown)
@@ -143,7 +153,12 @@ onUnmounted(() => {
       <div class="ms-pcarousel" data-aos="fade-up" @mouseenter="onCarouselEnter" @mouseleave="onCarouselLeave">
 
         <!-- Sliding track -->
-        <div class="ms-pcarousel-track-wrap" ref="wrapRef">
+        <div
+          class="ms-pcarousel-track-wrap"
+          ref="wrapRef"
+          @touchstart.passive="onCardTouchStart"
+          @touchend.passive="onCardTouchEnd"
+        >
           <div
             class="ms-pcarousel-track"
             :style="{ transform: `translateX(${trackOffset}px)` }"
@@ -203,7 +218,7 @@ onUnmounted(() => {
                 <button
                   type="button"
                   class="ms-btn-preview"
-                  @click="openModal(project)"
+                  @click.stop="stopAutoplay(); cardIdx === i ? openModal(project) : goToCard(i)"
                   :aria-label="`Ver proyecto ${project.name}`"
                 >
                   <i class="pi pi-play-circle" aria-hidden="true"></i>
