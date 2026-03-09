@@ -1,23 +1,17 @@
 # ══════════════════════════════════════════════════════════════
 # Cloudflare Pages — Redirects
 # Optimizado para SEO + SPA routing
-# Docs: https://developers.cloudflare.com/pages/configuration/redirects/
 # ══════════════════════════════════════════════════════════════
 
 # ──────────────────────────────────────────────────────────────
-# Forzar HTTPS
+# Forzar HTTPS y dominio canónico
 # ──────────────────────────────────────────────────────────────
-http://metasoft.pe/* https://metasoft.pe/:splat 301
 
-# ──────────────────────────────────────────────────────────────
-# Dominio canónico (evita contenido duplicado)
-# www → dominio principal
-# ──────────────────────────────────────────────────────────────
+http://www.metasoft.pe/* https://metasoft.pe/:splat 301
+http://metasoft.pe/* https://metasoft.pe/:splat 301
 https://www.metasoft.pe/* https://metasoft.pe/:splat 301
 
 # ──────────────────────────────────────────────────────────────
-# SPA fallback
-# Sirve index.html para rutas manejadas por Vue Router
-# Solo se aplica si no existe archivo físico
+# SPA fallback (Vue Router)
 # ──────────────────────────────────────────────────────────────
 /* /index.html 200
