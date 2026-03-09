@@ -47,20 +47,17 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   position: fixed;
   bottom: 28px;
   right: 28px;
-  z-index: 500;
+  z-index: 9999;
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 14px;
-  /* iOS safe-area (home indicator / notch) */
-  bottom: max(28px, env(safe-area-inset-bottom, 0px) + 16px);
-  right: max(28px, env(safe-area-inset-right, 0px) + 16px);
 }
 
 @media (max-width: 640px) {
   .ms-floating-group {
-    bottom: max(16px, env(safe-area-inset-bottom, 0px) + 12px);
-    right: max(16px, env(safe-area-inset-right, 0px) + 12px);
+    bottom: 20px;
+    right: 16px;
     gap: 10px;
   }
 }

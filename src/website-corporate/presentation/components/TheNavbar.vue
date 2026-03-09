@@ -147,14 +147,13 @@ onUnmounted(() => {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Mobile: always show a subtle background so the navbar is visible
-   against both the hero and scrolled sections */
+/* Mobile: always show a solid background so the navbar is visible.
+   Avoid backdrop-filter on mobile — WebKit bug causes icon children
+   (e.g. pi-bars) to vanish when backdrop-filter is on a position:fixed parent. */
 @media (max-width: 768px) {
   .ms-navbar {
-    background: rgba(5, 8, 20, 0.8);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+    background: rgba(5, 8, 20, 0.94);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
 }
 
