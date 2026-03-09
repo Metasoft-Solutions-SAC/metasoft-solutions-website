@@ -52,6 +52,17 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   flex-direction: column;
   align-items: center;
   gap: 14px;
+  /* iOS safe-area (home indicator / notch) */
+  bottom: max(28px, env(safe-area-inset-bottom, 0px) + 16px);
+  right: max(28px, env(safe-area-inset-right, 0px) + 16px);
+}
+
+@media (max-width: 640px) {
+  .ms-floating-group {
+    bottom: max(16px, env(safe-area-inset-bottom, 0px) + 12px);
+    right: max(16px, env(safe-area-inset-right, 0px) + 12px);
+    gap: 10px;
+  }
 }
 
 /* ── WhatsApp ─────────────────── */
@@ -93,6 +104,14 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
   box-shadow: 0 6px 28px rgba(37, 211, 102, 0.6);
 }
 
+@media (max-width: 640px) {
+  .ms-whatsapp-btn {
+    width: 48px;
+    height: 48px;
+    font-size: 1.3rem;
+  }
+}
+
 /* ── Back to top ──────────────── */
 .ms-back-to-top {
   width: 56px;
@@ -121,6 +140,14 @@ onUnmounted(() => window.removeEventListener('scroll', onScroll))
 
 .ms-back-to-top:hover .pi {
   animation: arrow-bounce 0.4s ease;
+}
+
+@media (max-width: 640px) {
+  .ms-back-to-top {
+    width: 48px;
+    height: 48px;
+    font-size: 1rem;
+  }
 }
 
 @keyframes arrow-bounce {

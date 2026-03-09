@@ -103,8 +103,7 @@ export const createApp = ViteSSG(
         duration: 800,
         easing: 'ease-out-cubic',
         once: true,
-        offset: 50,
-        disable: 'mobile'
+        offset: 40
       })
     }
   }

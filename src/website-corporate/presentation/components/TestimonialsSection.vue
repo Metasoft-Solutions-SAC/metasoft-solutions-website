@@ -784,6 +784,28 @@ onUnmounted(() => {
   .ms-testimonials-cta__inner .ms-btn { width: 100%; justify-content: center; }
 }
 
+/* ── Peek carousel — mobile ────────────────────────────── */
+@media (max-width: 640px) {
+  .ms-pcarousel-track-wrap {
+    /* Narrower fade so cards use more screen width */
+    -webkit-mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+    mask-image: linear-gradient(90deg, transparent 0%, #000 5%, #000 95%, transparent 100%);
+  }
+
+  .ms-project-card {
+    /* Wider cards on narrow screens — show ~90% of viewport */
+    flex: 0 0 min(720px, 90%);
+    width: min(720px, 90%);
+    padding: var(--ms-spacing-lg);
+    gap: var(--ms-spacing-md);
+  }
+
+  .ms-pcarousel-controls {
+    gap: var(--ms-spacing-sm);
+    margin-top: var(--ms-spacing-lg);
+  }
+}
+
 .mb-md { margin-bottom: var(--ms-spacing-md); }
 </style>
 
@@ -1085,4 +1107,47 @@ onUnmounted(() => {
 .ms-modal-fade-leave-to { opacity: 0; }
 .ms-modal-fade-enter-from .ms-project-modal { transform: scale(0.96) translateY(12px); }
 .ms-modal-fade-leave-to .ms-project-modal  { transform: scale(0.96) translateY(8px); }
+
+/* ── Modal — mobile (bottom sheet) ────────────────────── */
+@media (max-width: 640px) {
+  .ms-project-overlay {
+    padding: 0;
+    align-items: flex-end;
+  }
+
+  .ms-project-modal {
+    border-radius: 20px 20px 0 0;
+    max-height: 92vh;
+    /* Respect iOS home indicator */
+    max-height: max(200px, calc(100dvh - env(safe-area-inset-top, 0px) - 16px));
+  }
+
+  .ms-modal-head {
+    padding: 1rem 1.1rem 0.85rem;
+  }
+
+  .ms-modal-title {
+    font-size: 1rem;
+  }
+
+  .ms-carousel {
+    min-height: 200px;
+  }
+
+  .ms-carousel-footer {
+    padding: 0.6rem 1.1rem;
+  }
+
+  .ms-carousel-nav {
+    width: 34px;
+    height: 34px;
+    font-size: 0.75rem;
+  }
+  .ms-carousel-nav--prev { left: 6px; }
+  .ms-carousel-nav--next { right: 6px; }
+
+  /* Bottom sheet slide-up animation on mobile */
+  .ms-modal-fade-enter-from .ms-project-modal { transform: translateY(60px); }
+  .ms-modal-fade-leave-to .ms-project-modal  { transform: translateY(40px); }
+}
 </style>
