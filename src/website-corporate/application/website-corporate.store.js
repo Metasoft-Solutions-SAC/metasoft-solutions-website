@@ -3,6 +3,26 @@ import { ref } from 'vue'
 import { WebsiteCorporateApi } from '../infrastructure/website-corporate.api.js'
 import { WebsiteSectionAssembler } from '../infrastructure/website-section.assembler.js'
 
+// ── Tracker Mobility ERP — capturas de pantalla ──────────────────────────────
+import trackerLogin          from '../../assets/img/tracker-mobility/1.login-tracker.webp'
+import trackerOrdenes        from '../../assets/img/tracker-mobility/2.ordenes-tracker.webp'
+import trackerDetalleOrden   from '../../assets/img/tracker-mobility/2.1.detalle-orden-tracker.webp'
+import trackerReportes       from '../../assets/img/tracker-mobility/3.reportes-tracker.webp'
+import trackerDetalleReporte from '../../assets/img/tracker-mobility/3.1.detalle-reporte-tracker.webp'
+import trackerVerificadores  from '../../assets/img/tracker-mobility/4.verificadores-tracker.webp'
+import trackerCliente        from '../../assets/img/tracker-mobility/5.cliente-tracker.webp'
+import trackerInicioCliente  from '../../assets/img/tracker-mobility/6.inicio-cliente-tracker.webp'
+import trackerOrdenesCliente from '../../assets/img/tracker-mobility/7.ordenes-cliente-tracker.webp'
+import trackerDetalleOrdenCliente from '../../assets/img/tracker-mobility/7.1.detalle-orden-cliente-tracker.webp'
+
+// ── Lizzo App — capturas de pantalla ──────────────────────────────────────
+import lizzoLogin          from '../../assets/img/lizzo/1.login-lizzo.webp'
+import lizzoRegistro       from '../../assets/img/lizzo/2.registro-lizzo.webp'
+import lizzoHome           from '../../assets/img/lizzo/3.home-lizzo.webp'
+import lizzoPagos          from '../../assets/img/lizzo/4.pagos-lizzo.webp'
+import lizzoFinanciamiento from '../../assets/img/lizzo/5.financiamiento-lizzo.webp'
+import lizzoDocumentos     from '../../assets/img/lizzo/6.documentos-lizzo.webp'
+
 /**
  * useWebsiteCorporateStore
  * APPLICATION LAYER — Pinia Composition Store. Single source of truth for all
@@ -212,10 +232,16 @@ export const useWebsiteCorporateStore = defineStore('website-corporate', () => {
         'Generación y exportación de reportes detallados'
       ],
       images: [
-        { label: 'Dashboard — Panel de administración', src: null },
-        { label: 'Gestión de órdenes de servicio', src: null },
-        { label: 'Portal del cliente solicitante', src: null },
-        { label: 'Reportes y exportación de datos', src: null }
+        { label: 'Login — Acceso al sistema',                   src: trackerLogin },
+        { label: 'Órdenes de servicio — Vista general',         src: trackerOrdenes },
+        { label: 'Detalle de orden de servicio',                src: trackerDetalleOrden },
+        { label: 'Reportes y exportación de datos',             src: trackerReportes },
+        { label: 'Detalle de reporte',                          src: trackerDetalleReporte },
+        { label: 'Gestión de verificadores',                    src: trackerVerificadores },
+        { label: 'Panel de clientes',                           src: trackerCliente },
+        { label: 'Inicio — Portal del cliente solicitante',     src: trackerInicioCliente },
+        { label: 'Órdenes del cliente solicitante',             src: trackerOrdenesCliente },
+        { label: 'Detalle de orden — Vista del cliente',        src: trackerDetalleOrdenCliente }
       ]
     },
     {
@@ -266,12 +292,12 @@ export const useWebsiteCorporateStore = defineStore('website-corporate', () => {
         'Componentes de gestión de vehículo, beneficios y perfil de usuario'
       ],
       images: [
-        { label: 'Login y recuperación de contraseña', src: null },
-        { label: 'Registro y validación de celular/correo', src: null },
-        { label: 'Home — resumen de vehículo y notificaciones', src: null },
-        { label: 'Módulo de pagos con Yape y tarjeta', src: null },
-        { label: 'Solicitud de financiamiento vehicular', src: null },
-        { label: 'Subida de documentos de identidad y licencia', src: null }
+        { label: 'Login y recuperación de contraseña',           src: lizzoLogin },
+        { label: 'Registro y validación de celular/correo',       src: lizzoRegistro },
+        { label: 'Home — resumen de vehículo y notificaciones',   src: lizzoHome },
+        { label: 'Módulo de pagos con Yape y tarjeta',            src: lizzoPagos },
+        { label: 'Solicitud de financiamiento vehicular',          src: lizzoFinanciamiento },
+        { label: 'Subida de documentos de identidad y licencia',  src: lizzoDocumentos }
       ]
     }
   ])
