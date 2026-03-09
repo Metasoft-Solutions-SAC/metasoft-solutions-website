@@ -12,6 +12,9 @@ html {
   scroll-behavior: smooth;
   font-size: 16px;
   -webkit-text-size-adjust: 100%;
+  /* Prevents horizontal scroll without breaking position:fixed on iOS Safari
+     (body-only overflow:hidden is a known iOS bug that hides fixed elements) */
+  overflow-x: hidden;
 }
 
 body {
