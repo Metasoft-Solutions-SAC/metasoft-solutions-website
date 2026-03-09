@@ -1108,18 +1108,18 @@ onUnmounted(() => {
 .ms-modal-fade-enter-from .ms-project-modal { transform: scale(0.96) translateY(12px); }
 .ms-modal-fade-leave-to .ms-project-modal  { transform: scale(0.96) translateY(8px); }
 
-/* ── Modal — mobile (bottom sheet) ────────────────────── */
+/* ── Modal — mobile (centered) ─────────────────────────── */
 @media (max-width: 640px) {
   .ms-project-overlay {
-    padding: 0;
-    align-items: flex-end;
+    padding: 1rem;
+    align-items: center;
+    justify-content: center;
   }
 
   .ms-project-modal {
-    border-radius: 20px 20px 0 0;
-    max-height: 92vh;
-    /* Respect iOS home indicator */
-    max-height: max(200px, calc(100dvh - env(safe-area-inset-top, 0px) - 16px));
+    border-radius: 16px;
+    max-height: 88vh;
+    width: 100%;
   }
 
   .ms-modal-head {
@@ -1145,9 +1145,5 @@ onUnmounted(() => {
   }
   .ms-carousel-nav--prev { left: 6px; }
   .ms-carousel-nav--next { right: 6px; }
-
-  /* Bottom sheet slide-up animation on mobile */
-  .ms-modal-fade-enter-from .ms-project-modal { transform: translateY(60px); }
-  .ms-modal-fade-leave-to .ms-project-modal  { transform: translateY(40px); }
 }
 </style>
