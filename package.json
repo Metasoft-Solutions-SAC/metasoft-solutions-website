@@ -3,6 +3,10 @@
   "private": true,
   "version": "0.0.0",
   "type": "module",
+  "engines": {
+    "node": ">=20.0.0",
+    "npm": ">=10.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite-ssg build",
@@ -17,7 +21,7 @@
     "primeflex": "^4.0.0",
     "primeicons": "^7.0.0",
     "primevue": "^4.5.4",
-    "vite-ssg": "^0.23.8",
+    "vite-ssg": "28.3.0",
     "vue": "^3.5.25",
     "vue-router": "^5.0.3"
   },
