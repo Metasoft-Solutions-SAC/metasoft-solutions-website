@@ -37,18 +37,13 @@ onMounted(() => {
       <!-- Social Proof Divider -->
       <TrustSection />
 
-      <!-- Narrative flow: Services -> Process -> About -> Tech -> Cases -> FAQ -->
+      <!-- Narrative flow: Services -> Process -> TechStack -> About -> Testimonials -> FAQ -->
       <div class="ms-story-flow">
         <ServicesSection />
-        <div class="ms-wave-divider" aria-hidden="true"></div>
         <ProcessSection />
-        <div class="ms-wave-divider" aria-hidden="true"></div>
-        <AboutSection />
-        <div class="ms-wave-divider" aria-hidden="true"></div>
         <TechStackSection />
-        <div class="ms-wave-divider" aria-hidden="true"></div>
+        <AboutSection />
         <TestimonialsSection />
-        <div class="ms-wave-divider" aria-hidden="true"></div>
         <FaqSection />
       </div>
 
@@ -81,25 +76,6 @@ onMounted(() => {
   padding-bottom: var(--ms-spacing-5xl);
   position: relative;
   z-index: 10;
-}
-
-/* Subtle line separators between sections */
-.ms-wave-divider {
-  position: relative;
-  height: 1px;
-  margin: 0 auto;
-  width: 60%;
-  max-width: 720px;
-  pointer-events: none;
-  z-index: 5;
-  background: linear-gradient(
-    90deg,
-    transparent 0%,
-    rgba(14, 165, 233, 0.18) 30%,
-    rgba(56, 189, 248, 0.25) 50%,
-    rgba(14, 165, 233, 0.18) 70%,
-    transparent 100%
-  );
 }
 
 /* Ambient WebGL-style Background Glows */

@@ -3,32 +3,36 @@ import { ref } from 'vue'
 import { WebsiteCorporateApi } from '../infrastructure/website-corporate.api.js'
 import { WebsiteSectionAssembler } from '../infrastructure/website-section.assembler.js'
 
-// ── Tracker Mobility ERP — capturas de pantalla ──────────────────────────────
-import trackerLogin          from '../../assets/img/tracker-mobility/1.login-tracker.webp'
-import trackerOrdenes        from '../../assets/img/tracker-mobility/2.ordenes-tracker.webp'
-import trackerDetalleOrden   from '../../assets/img/tracker-mobility/2.1.detalle-orden-tracker.webp'
-import trackerReportes       from '../../assets/img/tracker-mobility/3.reportes-tracker.webp'
-import trackerDetalleReporte from '../../assets/img/tracker-mobility/3.1.detalle-reporte-tracker.webp'
-import trackerVerificadores  from '../../assets/img/tracker-mobility/4.verificadores-tracker.webp'
-import trackerCliente        from '../../assets/img/tracker-mobility/5.cliente-tracker.webp'
-import trackerInicioCliente  from '../../assets/img/tracker-mobility/6.inicio-cliente-tracker.webp'
-import trackerOrdenesCliente from '../../assets/img/tracker-mobility/7.ordenes-cliente-tracker.webp'
-import trackerDetalleOrdenCliente from '../../assets/img/tracker-mobility/7.1.detalle-orden-cliente-tracker.webp'
+// ── Resolve asset URLs at build time without eagerly loading into main chunk ──
+// new URL(..., import.meta.url) lets Vite hash and emit assets while keeping
+// the store module lightweight — images are only downloaded when rendered.
 
-// ── Lizzo App — capturas de pantalla ──────────────────────────────────────
-import lizzoLogin          from '../../assets/img/lizzo/1.login-lizzo.webp'
-import lizzoRegistro       from '../../assets/img/lizzo/2.registro-lizzo.webp'
-import lizzoHome           from '../../assets/img/lizzo/3.home-lizzo.webp'
-import lizzoPagos          from '../../assets/img/lizzo/4.pagos-lizzo.webp'
-import lizzoFinanciamiento from '../../assets/img/lizzo/5.financiamiento-lizzo.webp'
-import lizzoDocumentos     from '../../assets/img/lizzo/6.documentos-lizzo.webp'
+// Tracker Mobility ERP
+const trackerLogin          = new URL('../../assets/img/tracker-mobility/1.login-tracker.webp', import.meta.url).href
+const trackerOrdenes        = new URL('../../assets/img/tracker-mobility/2.ordenes-tracker.webp', import.meta.url).href
+const trackerDetalleOrden   = new URL('../../assets/img/tracker-mobility/2.1.detalle-orden-tracker.webp', import.meta.url).href
+const trackerReportes       = new URL('../../assets/img/tracker-mobility/3.reportes-tracker.webp', import.meta.url).href
+const trackerDetalleReporte = new URL('../../assets/img/tracker-mobility/3.1.detalle-reporte-tracker.webp', import.meta.url).href
+const trackerVerificadores  = new URL('../../assets/img/tracker-mobility/4.verificadores-tracker.webp', import.meta.url).href
+const trackerCliente        = new URL('../../assets/img/tracker-mobility/5.cliente-tracker.webp', import.meta.url).href
+const trackerInicioCliente  = new URL('../../assets/img/tracker-mobility/6.inicio-cliente-tracker.webp', import.meta.url).href
+const trackerOrdenesCliente = new URL('../../assets/img/tracker-mobility/7.ordenes-cliente-tracker.webp', import.meta.url).href
+const trackerDetalleOrdenCliente = new URL('../../assets/img/tracker-mobility/7.1.detalle-orden-cliente-tracker.webp', import.meta.url).href
 
-// ── Tracker Mobility App (móvil) — capturas de pantalla ────────────────────
-import trackerMobileOrdenes from '../../assets/img/tracker-mobility-mobile/1.ordenes-tracker-mobile.webp'
+// Lizzo App
+const lizzoLogin          = new URL('../../assets/img/lizzo/1.login-lizzo.webp', import.meta.url).href
+const lizzoRegistro       = new URL('../../assets/img/lizzo/2.registro-lizzo.webp', import.meta.url).href
+const lizzoHome           = new URL('../../assets/img/lizzo/3.home-lizzo.webp', import.meta.url).href
+const lizzoPagos          = new URL('../../assets/img/lizzo/4.pagos-lizzo.webp', import.meta.url).href
+const lizzoFinanciamiento = new URL('../../assets/img/lizzo/5.financiamiento-lizzo.webp', import.meta.url).href
+const lizzoDocumentos     = new URL('../../assets/img/lizzo/6.documentos-lizzo.webp', import.meta.url).href
 
-// ── Logos de clientes ─────────────────────────────────────────────────────────
-import logoTrackerMobility from '../../assets/img/logo-clientes/logo-tracker-mobility.png'
-import logoMillennium      from '../../assets/img/logo-clientes/logo-millennium.jpg'
+// Tracker Mobility App (móvil)
+const trackerMobileOrdenes = new URL('../../assets/img/tracker-mobility-mobile/1.ordenes-tracker-mobile.webp', import.meta.url).href
+
+// Logos de clientes
+const logoTrackerMobility = new URL('../../assets/img/logo-clientes/logo-tracker-mobility.png', import.meta.url).href
+const logoMillennium      = new URL('../../assets/img/logo-clientes/logo-millennium.jpg', import.meta.url).href
 
 /**
  * useWebsiteCorporateStore
@@ -77,8 +81,8 @@ export const useWebsiteCorporateStore = defineStore('website-corporate', () => {
       id: 'web-apps',
       icon: 'pi pi-server',
       title: 'Aplicaciones Web a Medida',
-      description: 'Si tus procesos todavía viven en hojas de cálculo o emails, te construimos el sistema exacto que necesitas: gestora de pedidos, CRM, ERP o plataforma interna.',
-      tags: ['Automatizar procesos manuales repetitivos', 'Centralizar información de clientes/ventas', 'Dashboards con métricas en tiempo real'],
+      description: 'Sistemas web internos diseñados para tu operación: automatiza flujos de trabajo, integra tus herramientas CRM y ERP, y centraliza la información de tu equipo en una sola plataforma escalable.',
+      tags: ['Sistemas de gestión internos personalizados', 'Integración con CRM, ERP y herramientas externas', 'Dashboards y reportes en tiempo real'],
       highlight: true
     },
     {
@@ -87,14 +91,6 @@ export const useWebsiteCorporateStore = defineStore('website-corporate', () => {
       title: 'Aplicaciones Móviles',
       description: 'Lleva tu negocio al bolsillo de tus clientes o equipo. Desarrollamos apps Android e iOS con Flutter — un solo código, dos plataformas, sin doblar el presupuesto.',
       tags: ['Conectar con clientes en sus dispositivos', 'App de delivery o servicios a domicilio', 'Herramienta interna para equipo en campo'],
-      highlight: false
-    },
-    {
-      id: 'saas',
-      icon: 'pi pi-cloud',
-      title: 'Plataformas SaaS',
-      description: 'Tienes una idea de producto digital y quieres cobrar suscripciones. Te construimos la plataforma multi-tenant, escalable en la nube, lista para crecer.',
-      tags: ['Lanzar producto digital con ingresos recurrentes', 'Sistema multiempresa (multi-tenant)', 'API para integrar con otros sistemas'],
       highlight: false
     },
     {

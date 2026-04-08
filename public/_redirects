@@ -7,9 +7,9 @@
 # Forzar HTTPS y dominio canónico
 # ──────────────────────────────────────────────────────────────
 
-http://www.metasoft.pe/* https://metasoft.pe/:splat 301
-http://metasoft.pe/* https://metasoft.pe/:splat 301
-https://www.metasoft.pe/* https://metasoft.pe/:splat 301
+http://metasoft.pe/* https://www.metasoft.pe/:splat 301
+http://www.metasoft.pe/* https://www.metasoft.pe/:splat 301
+https://metasoft.pe/* https://www.metasoft.pe/:splat 301
 
 # ──────────────────────────────────────────────────────────────
 # SPA fallback (Vue Router)

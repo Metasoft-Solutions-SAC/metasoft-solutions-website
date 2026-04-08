@@ -143,21 +143,42 @@ onUnmounted(() => progressObserver?.disconnect())
 
 <style scoped>
 .ms-tech {
-  background: #05080F;
+  background: var(--ms-bg-deep);
   position: relative;
   overflow: hidden;
 }
 
+/* Circuit dot-grid with stronger cyan dots */
 .ms-tech::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(ellipse 85% 45% at 50% 50%, rgba(56, 189, 248, 0.07) 0%, transparent 60%),
-    linear-gradient(rgba(56, 189, 248, 0.03) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(56, 189, 248, 0.03) 1px, transparent 1px);
-  background-size: 100% 100%, 24px 24px, 24px 24px;
+    radial-gradient(ellipse 85% 45% at 50% 50%, rgba(56, 189, 248, 0.10) 0%, transparent 60%),
+    radial-gradient(circle, rgba(56, 189, 248, 0.25) 1.5px, transparent 1.5px),
+    linear-gradient(rgba(56, 189, 248, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(56, 189, 248, 0.05) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px, 32px 32px;
   pointer-events: none;
+}
+
+/* Terminal prompt watermark */
+.ms-tech::after {
+  content: '>_';
+  position: absolute;
+  top: 3rem;
+  left: -1rem;
+  font-size: 22rem;
+  font-weight: 900;
+  font-family: 'Courier New', monospace;
+  color: var(--ms-brand-primary);
+  opacity: 0.04;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.08em;
+  rotate: -5deg;
+  z-index: 0;
 }
 
 /* ── Section header ─────────────────────────────── */

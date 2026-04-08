@@ -1,5 +1,6 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 import { useScrollTo } from '../composables/useScrollTo.js'
 
 const isScrolled = ref(false)
@@ -34,9 +35,16 @@ const handleScroll = () => {
 }
 
 const { scrollTo: scrollToSection } = useScrollTo()
+const route = useRoute()
+const router = useRouter()
+
 const scrollTo = (href) => {
   drawerVisible.value = false
-  scrollToSection(href)
+  if (route.path !== '/') {
+    router.push('/' + href)
+  } else {
+    scrollToSection(href)
+  }
 }
 
 onMounted(() => {

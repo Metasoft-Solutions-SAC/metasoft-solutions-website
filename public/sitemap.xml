@@ -1,10 +1,47 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://www.metasoft.pe/</loc>
-    <lastmod>2026-03-08</lastmod>
+    <lastmod>2026-04-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="es-PE" href="https://www.metasoft.pe/" />
+  </url>
+  <url>
+    <loc>https://www.metasoft.pe/desarrollo-sitios-web-corporativos</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es-PE" href="https://www.metasoft.pe/desarrollo-sitios-web-corporativos" />
+  </url>
+  <url>
+    <loc>https://www.metasoft.pe/desarrollo-aplicaciones-web</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es-PE" href="https://www.metasoft.pe/desarrollo-aplicaciones-web" />
+  </url>
+  <url>
+    <loc>https://www.metasoft.pe/desarrollo-aplicaciones-moviles</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="es-PE" href="https://www.metasoft.pe/desarrollo-aplicaciones-moviles" />
+  </url>
+  <url>
+    <loc>https://www.metasoft.pe/plataformas-saas</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es-PE" href="https://www.metasoft.pe/plataformas-saas" />
+  </url>
+  <url>
+    <loc>https://www.metasoft.pe/consultoria-migracion-software</loc>
+    <lastmod>2026-04-07</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="es-PE" href="https://www.metasoft.pe/consultoria-migracion-software" />
   </url>
   <url>
     <loc>https://www.metasoft.pe/privacidad.html</loc>
@@ -19,3 +56,4 @@
     <priority>0.1</priority>
   </url>
 </urlset>
+

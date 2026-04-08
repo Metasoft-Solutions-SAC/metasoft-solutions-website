@@ -1,5 +1,8 @@
 <script setup>
-// App root — renders RouterView and global Toast notification layer
+import { useHead } from '@unhead/vue'
+
+// Preserve the html lang attribute across all SSG-rendered pages
+useHead({ htmlAttrs: { lang: 'es-PE' } })
 </script>
 
 <template>

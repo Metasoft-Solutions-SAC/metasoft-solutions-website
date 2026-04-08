@@ -92,20 +92,22 @@ function toggle(id) {
 
 <style scoped>
 .ms-faq {
-  background: var(--ms-bg-primary);
+  background: var(--ms-bg-surface-2);
   position: relative;
   overflow: hidden;
 }
 
+/* Circuit dot-grid */
 .ms-faq::before {
   content: '';
   position: absolute;
-  top: -20%;
-  right: -12%;
-  width: 55vw;
-  height: 55vw;
-  border-radius: 50%;
-  background: radial-gradient(circle, rgba(14, 165, 233, 0.07) 0%, transparent 65%);
+  inset: 0;
+  background-image:
+    radial-gradient(ellipse 55vw 55vw at 95% -10%, rgba(14, 165, 233, 0.11) 0%, transparent 65%),
+    radial-gradient(circle, rgba(14, 165, 233, 0.18) 1.5px, transparent 1.5px),
+    linear-gradient(rgba(14, 165, 233, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
+  background-size: auto, 32px 32px, 32px 32px, 32px 32px;
   pointer-events: none;
 }
 
@@ -237,7 +239,7 @@ function toggle(id) {
 }
 
 .ms-faq__item {
-  background: var(--ms-bg-card);
+  background: var(--ms-bg-deep);
   border: 1px solid var(--ms-border-color);
   border-radius: var(--ms-border-radius-lg);
   overflow: hidden;

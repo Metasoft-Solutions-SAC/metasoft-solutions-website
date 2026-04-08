@@ -46,7 +46,7 @@ const scrollingTechs = computed(() => [...featuredTechs.value, ...featuredTechs.
 
 <style scoped>
 .ms-trust {
-  background: var(--ms-bg-primary);
+  background: var(--ms-bg-surface-2);
   padding: var(--ms-spacing-2xl) 0;
   border-top: 1px solid var(--ms-border-color);
   border-bottom: 1px solid var(--ms-border-color);

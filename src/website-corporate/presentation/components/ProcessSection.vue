@@ -81,23 +81,42 @@ const { scrollTo } = useScrollTo()
 
 <style scoped>
 .ms-process {
-  background: #07090F;
+  background: var(--ms-bg-surface-2);
   overflow: hidden;
   position: relative;
 }
 
+/* Circuit grid pattern */
 .ms-process::before {
   content: '';
   position: absolute;
   inset: 0;
-  background-image: repeating-linear-gradient(
-    -45deg,
-    transparent,
-    transparent 40px,
-    rgba(255, 255, 255, 0.013) 40px,
-    rgba(255, 255, 255, 0.013) 41px
-  );
+  background-image:
+    radial-gradient(circle, rgba(14, 165, 233, 0.18) 1.5px, transparent 1.5px),
+    linear-gradient(rgba(14, 165, 233, 0.05) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.05) 1px, transparent 1px);
+  background-size: 32px 32px, 32px 32px, 32px 32px;
   pointer-events: none;
+  opacity: 0.6;
+}
+
+/* Curly-brace code watermark */
+.ms-process::after {
+  content: '{ }';
+  position: absolute;
+  bottom: -3rem;
+  right: -2.5rem;
+  font-size: 20rem;
+  font-weight: 900;
+  font-family: 'Courier New', monospace;
+  color: var(--ms-brand-primary);
+  opacity: 0.04;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.1em;
+  rotate: 8deg;
+  z-index: 0;
 }
 
 /* ── Header ─────────────────────────────────────── */
@@ -173,7 +192,7 @@ const { scrollTo } = useScrollTo()
 /* ── Card ───────────────────────────────────────── */
 .ms-process-card {
   position: relative;
-  background: var(--ms-bg-surface);
+  background: var(--ms-bg-deep);
   border: 1px solid var(--ms-border-color);
   border-left: 3px solid rgba(14, 165, 233, 0.25);
   border-radius: var(--ms-border-radius-lg);

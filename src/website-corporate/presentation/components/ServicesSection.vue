@@ -17,7 +17,7 @@ const { scrollTo } = useScrollTo()
         <p class="ms-section-overline" aria-hidden="true">01 / Servicios</p>
         <span class="ms-badge mb-md">Soluciones Digitales</span>
         <h2 id="services-title">Todo lo que podemos <span class="text-gradient">construir juntos</span></h2>
-        <p class="ms-services-subtitle">Desde una landing hasta un SaaS multi-tenant. Aquí está lo que podemos construir juntos.</p>
+        <p class="ms-services-subtitle">Desde sitios web corporativos hasta aplicaciones empresariales a medida. Aquí está lo que podemos construir juntos.</p>
       </div>
 
       <div class="ms-services-grid">
@@ -87,20 +87,42 @@ const { scrollTo } = useScrollTo()
 
 <style scoped>
 .ms-services {
-  background: var(--ms-bg-primary);
+  background: var(--ms-bg-deep);
   position: relative;
   overflow: hidden;
 }
 
+/* Circuit-board dot grid — cyan nodes at every intersection */
 .ms-services::before {
   content: '';
   position: absolute;
   inset: 0;
   background-image:
-    radial-gradient(ellipse 65% 55% at 82% 20%, rgba(14, 165, 233, 0.09) 0%, transparent 60%),
-    radial-gradient(rgba(255, 255, 255, 0.05) 1px, transparent 1px);
-  background-size: 100% 100%, 26px 26px;
+    radial-gradient(ellipse 65% 55% at 80% 18%, rgba(14, 165, 233, 0.12) 0%, transparent 58%),
+    radial-gradient(circle, rgba(14, 165, 233, 0.22) 1.5px, transparent 1.5px),
+    linear-gradient(rgba(14, 165, 233, 0.04) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.04) 1px, transparent 1px);
+  background-size: 100% 100%, 32px 32px, 32px 32px, 32px 32px;
   pointer-events: none;
+}
+
+/* Code bracket watermark */
+.ms-services::after {
+  content: '</>';
+  position: absolute;
+  bottom: -1rem;
+  right: -1rem;
+  font-size: 18rem;
+  font-weight: 900;
+  font-family: 'Courier New', monospace;
+  color: var(--ms-brand-primary);
+  opacity: 0.035;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.05em;
+  rotate: -8deg;
+  z-index: 0;
 }
 
 /* ── Section header ─────────────────────────────── */
@@ -119,7 +141,7 @@ const { scrollTo } = useScrollTo()
   text-align: center;
 }
 
-/* ── 3-column grid ─────────────────────────────── */
+/* ── Grid: 3 arriba + 1 centrada abajo ── */
 .ms-services-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -127,11 +149,17 @@ const { scrollTo } = useScrollTo()
   margin-top: var(--ms-spacing-3xl);
 }
 
-@media (max-width: 1024px) {
-  .ms-services-grid { grid-template-columns: repeat(2, 1fr); }
+/* 4ta card sola en su fila → columna central */
+.ms-service-card:nth-child(4):last-child {
+  grid-column: 2;
 }
 
-@media (max-width: 640px) {
+@media (max-width: 1100px) {
+  .ms-services-grid { grid-template-columns: repeat(2, 1fr); }
+  .ms-service-card:nth-child(4):last-child { grid-column: auto; }
+}
+
+@media (max-width: 580px) {
   .ms-services-grid { grid-template-columns: 1fr; }
 }
 

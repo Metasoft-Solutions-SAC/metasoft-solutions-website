@@ -1,5 +1,6 @@
 <script setup>
 import { useScrollTo } from '../composables/useScrollTo.js'
+
 const { scrollTo } = useScrollTo()
 </script>
 
@@ -20,8 +21,8 @@ const { scrollTo } = useScrollTo()
         </div>
 
         <h1 class="ms-hero__title">
-          Software a medida.<br />
-          <span class="text-gradient animate-shine">Resultados garantizados.</span>
+          Desarrollo de Software a Medida<br />
+          <span class="text-gradient animate-shine">en Lima, Perú</span>
         </h1>
 
         <p class="ms-hero__slogan">
@@ -43,12 +44,12 @@ const { scrollTo } = useScrollTo()
         </div>
 
         <div class="ms-hero__ctas" data-aos="fade-up" data-aos-delay="450">
-          <button type="button" class="ms-btn ms-btn-lg ms-btn-glow" @click="scrollTo('#contacto')">
+          <a href="#contacto" class="ms-btn ms-btn-lg ms-btn-glow" @click.prevent="scrollTo('#contacto')">
             Solicita una Consulta Gratuita
-          </button>
-          <button type="button" class="ms-btn ms-btn-lg ms-btn-outline" @click="scrollTo('#servicios')">
+          </a>
+          <a href="#servicios" class="ms-btn ms-btn-lg ms-btn-outline" @click.prevent="scrollTo('#servicios')">
             Ver Servicios
-          </button>
+          </a>
         </div>
 
       </div>
@@ -67,7 +68,7 @@ const { scrollTo } = useScrollTo()
   display: flex;
   align-items: center;
   padding-top: var(--ms-navbar-height);
-  background-image: url('../../../assets/img/background-background.png');
+  background-image: url('/background.png');
   background-size: cover;
   background-position: center right;
   background-repeat: no-repeat;

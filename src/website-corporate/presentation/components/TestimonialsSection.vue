@@ -407,7 +407,7 @@ onUnmounted(() => {
 <style scoped>
 /* ── Section shell ─────────────────────────────────────── */
 .ms-testimonials {
-  background: var(--ms-bg-surface);
+  background: var(--ms-bg-deep);
   position: relative;
   overflow: hidden;
 }

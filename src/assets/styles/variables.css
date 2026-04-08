@@ -6,6 +6,7 @@
   /* — Brand Colors — */
   /* Main background deep navy blue */
   --ms-bg-primary:       #0A0F1C; 
+  --ms-bg-deep:          #05080F; /* Deepest dark — alternating dark rows */
   --ms-bg-card:          rgba(20, 31, 54, 0.4); 
   --ms-bg-card-hover:    rgba(25, 38, 66, 0.6);
   --ms-bg-card-solid:    #111A2E; 

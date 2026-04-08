@@ -161,19 +161,48 @@ onUnmounted(() => statsObserver?.disconnect())
 
 <style scoped>
 .ms-about {
-  background: var(--ms-bg-surface);
+  background: var(--ms-bg-surface-2);
   position: relative;
   overflow: hidden;
 }
 
+/* Circuit dot-grid + radial glows */
 .ms-about::before {
   content: '';
   position: absolute;
   inset: 0;
   background:
     radial-gradient(ellipse 650px 450px at -5% 75%, rgba(14, 165, 233, 0.08) 0%, transparent 65%),
-    radial-gradient(ellipse 550px 420px at 108% 12%, rgba(99, 102, 241, 0.07) 0%, transparent 65%);
+    radial-gradient(ellipse 550px 420px at 108% 12%, rgba(99, 102, 241, 0.07) 0%, transparent 65%),
+    radial-gradient(circle, rgba(14, 165, 233, 0.16) 1.5px, transparent 1.5px),
+    linear-gradient(rgba(14, 165, 233, 0.035) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(14, 165, 233, 0.035) 1px, transparent 1px);
+  background-size: auto, auto, 32px 32px, 32px 32px, 32px 32px;
   pointer-events: none;
+}
+
+/* Code-tag watermark */
+.ms-about::after {
+  content: '</>';
+  position: absolute;
+  top: 4rem;
+  right: -3rem;
+  font-size: 20rem;
+  font-weight: 900;
+  font-family: 'Courier New', monospace;
+  color: var(--ms-brand-primary);
+  opacity: 0.04;
+  line-height: 1;
+  pointer-events: none;
+  user-select: none;
+  letter-spacing: -0.06em;
+  rotate: 10deg;
+  z-index: 0;
+}
+
+.ms-about > .ms-container {
+  position: relative;
+  z-index: 1;
 }
 
 /* �"?�"? Section header �"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"?�"? */
@@ -261,8 +290,8 @@ onUnmounted(() => statsObserver?.disconnect())
   display: flex;
   flex-direction: column;
   gap: 0;
-  background: var(--ms-bg-card);
-  border: 1px solid var(--ms-border-color);
+  background: var(--ms-bg-deep);
+  border: 1px solid rgba(14, 165, 233, 0.15);
   border-radius: var(--ms-border-radius-xl);
   overflow: hidden;
 }

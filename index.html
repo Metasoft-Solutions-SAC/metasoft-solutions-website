@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="es-PE">
   <head>
     <meta charset="UTF-8" />
@@ -7,7 +7,6 @@
     <!-- Primary SEO -->
     <title>Metasoft Solutions SAC — Desarrollo de Software a Medida en Perú</title>
     <meta name="description" content="Metasoft Solutions SAC — Tecnología que impulsa tus metas. Empresa de desarrollo de software en Lima, Perú. Aplicaciones web, apps móviles y SaaS a medida. MVP en 2 semanas. Soporte &lt; 24h." />
-    <meta name="keywords" content="desarrollo de software, desarrollo de software a medida, empresa de software en Perú, desarrollo de aplicaciones web, desarrollo de apps móviles, desarrollo SaaS, software Lima Perú, Metasoft Solutions" />
     <meta name="author" content="Metasoft Solutions SAC" />
     <meta name="robots" content="index, follow" />
     <link rel="canonical" href="https://www.metasoft.pe/" />
@@ -55,8 +54,8 @@
       <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" />
     </noscript>
 
-    <!-- Preload hero background (LCP element) -->
-    <link rel="preload" as="image" href="/src/assets/img/background-background.png" fetchpriority="high" type="image/png" />
+    <!-- Preload hero background (LCP element) — image lives in /public for stable URL -->
+    <link rel="preload" as="image" href="/background.png" fetchpriority="high" type="image/png" />
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -120,6 +119,7 @@
           "@type": "Service",
           "name": "Desarrollo de Sitios Web Corporativos",
           "description": "Presencia digital profesional optimizada para conversión y posicionamiento en buscadores.",
+          "url": "https://www.metasoft.pe/desarrollo-sitios-web-corporativos",
           "provider": { "@id": "https://www.metasoft.pe/#organization" },
           "areaServed": { "@type": "Country", "name": "Perú" },
           "offers": {
@@ -132,6 +132,7 @@
           "@type": "Service",
           "name": "Desarrollo de Aplicaciones Web a Medida",
           "description": "Sistemas de gestión, CRMs, ERPs o plataformas internas diseñadas para tu operación específica.",
+          "url": "https://www.metasoft.pe/desarrollo-aplicaciones-web",
           "provider": { "@id": "https://www.metasoft.pe/#organization" },
           "areaServed": { "@type": "Country", "name": "Perú" },
           "offers": {
@@ -144,6 +145,7 @@
           "@type": "Service",
           "name": "Desarrollo de Aplicaciones Móviles",
           "description": "Apps nativas para Android/iOS o multiplataforma con Flutter para llegar a más usuarios.",
+          "url": "https://www.metasoft.pe/desarrollo-aplicaciones-moviles",
           "provider": { "@id": "https://www.metasoft.pe/#organization" },
           "areaServed": { "@type": "Country", "name": "Perú" },
           "offers": {
@@ -154,8 +156,22 @@
         },
         {
           "@type": "Service",
+          "name": "Desarrollo de Plataformas SaaS",
+          "description": "Plataformas SaaS multi-tenant escalables en la nube para monetizar con suscripciones recurrentes.",
+          "url": "https://www.metasoft.pe/plataformas-saas",
+          "provider": { "@id": "https://www.metasoft.pe/#organization" },
+          "areaServed": { "@type": "Country", "name": "Perú" },
+          "offers": {
+            "@type": "Offer",
+            "priceCurrency": "PEN",
+            "priceSpecification": { "@type": "UnitPriceSpecification", "minPrice": "25000", "priceCurrency": "PEN" }
+          }
+        },
+        {
+          "@type": "Service",
           "name": "Consultoría y Migración de Software",
           "description": "Auditoría de código existente, optimización de arquitectura o migración a tecnologías modernas.",
+          "url": "https://www.metasoft.pe/consultoria-migracion-software",
           "provider": { "@id": "https://www.metasoft.pe/#organization" },
           "areaServed": { "@type": "Country", "name": "Perú" }
         },

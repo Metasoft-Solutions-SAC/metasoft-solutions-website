@@ -48,10 +48,11 @@ const { scrollTo } = useScrollTo()
           <nav aria-label="Servicios">
             <h3 class="ms-footer__nav-title">Servicios</h3>
             <ul role="list">
-              <li><a href="#servicios" class="ms-footer__nav-link" @click.prevent="scrollTo('#servicios')">Desarrollo de Software</a></li>
-              <li><a href="#servicios" class="ms-footer__nav-link" @click.prevent="scrollTo('#servicios')">Aplicaciones Móviles</a></li>
-              <li><a href="#servicios" class="ms-footer__nav-link" @click.prevent="scrollTo('#servicios')">Plataformas Web</a></li>
-              <li><a href="#servicios" class="ms-footer__nav-link" @click.prevent="scrollTo('#servicios')">Consultoría Tech</a></li>
+              <li><a href="/desarrollo-sitios-web-corporativos" class="ms-footer__nav-link">Sitios Web Corporativos</a></li>
+              <li><a href="/desarrollo-aplicaciones-web" class="ms-footer__nav-link">Aplicaciones Web a Medida</a></li>
+              <li><a href="/desarrollo-aplicaciones-moviles" class="ms-footer__nav-link">Aplicaciones Móviles</a></li>
+              <li><a href="/plataformas-saas" class="ms-footer__nav-link">Plataformas SaaS</a></li>
+              <li><a href="/consultoria-migracion-software" class="ms-footer__nav-link">Consultoría y Migración</a></li>
             </ul>
           </nav>
 
