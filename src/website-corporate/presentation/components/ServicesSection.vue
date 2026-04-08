@@ -141,25 +141,15 @@ const { scrollTo } = useScrollTo()
   text-align: center;
 }
 
-/* ── Grid: 3 arriba + 1 centrada abajo ── */
+/* ── Grid: 2 columnas ── */
 .ms-services-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(2, 1fr);
   gap: var(--ms-spacing-lg);
   margin-top: var(--ms-spacing-3xl);
 }
 
-/* 4ta card sola en su fila → columna central */
-.ms-service-card:nth-child(4):last-child {
-  grid-column: 2;
-}
-
-@media (max-width: 1100px) {
-  .ms-services-grid { grid-template-columns: repeat(2, 1fr); }
-  .ms-service-card:nth-child(4):last-child { grid-column: auto; }
-}
-
-@media (max-width: 580px) {
+@media (max-width: 640px) {
   .ms-services-grid { grid-template-columns: 1fr; }
 }
 
