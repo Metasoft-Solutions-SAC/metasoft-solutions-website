@@ -15,4 +15,5 @@ useHead({ htmlAttrs: { lang: 'es-PE' } })
 .force-dark-mode {
   color-scheme: dark;
 }
+
 </style>
