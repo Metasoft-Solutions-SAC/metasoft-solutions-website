@@ -23,6 +23,7 @@ import ToastService from 'primevue/toastservice'
 
 // PrimeVue Components — only components used in this project
 import Drawer    from 'primevue/drawer'
+import Toast     from 'primevue/toast'
 import InputText from 'primevue/inputtext'
 import Select    from 'primevue/select'
 import Textarea  from 'primevue/textarea'
@@ -80,6 +81,7 @@ export const createApp = ViteSSG(
     // ─── Global Components — used components only (pv- prefix) ───
     app
       .component('pv-drawer',     Drawer)
+      .component('pv-toast',      Toast)
       .component('pv-input-text', InputText)
       .component('pv-select',     Select)
       .component('pv-textarea',   Textarea)

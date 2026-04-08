@@ -57,12 +57,6 @@ export const useWebsiteCorporateStore = defineStore('website-corporate', () => {
   const errorMessage = ref('')
 
   // ──────────────────────────────────────────────────
-  // Contact state
-  // ──────────────────────────────────────────────────
-  const isContactSubmitting = ref(false)
-  const contactSuccess = ref(false)
-
-  // ──────────────────────────────────────────────────
   // Static content state — single source of truth for display data.
   // Presentation components must consume these refs via the store;
   // no component should import content data independently.
@@ -334,44 +328,12 @@ export const useWebsiteCorporateStore = defineStore('website-corporate', () => {
     }
   }
 
-  /**
-   * Submit contact / project form
-   * @param {object} formData
-   */
-  async function submitContactForm(formData) {
-    isContactSubmitting.value = true
-    contactSuccess.value = false
-
-    try {
-      const response = await api.submitContactForm(formData)
-      if (response.status === 200) {
-        contactSuccess.value = true
-      }
-    } catch (err) {
-      hasError.value = true
-      errorMessage.value = err?.message ?? 'Error al enviar el formulario'
-    } finally {
-      isContactSubmitting.value = false
-    }
-  }
-
-  /**
-   * Reset contact state
-   */
-  function resetContactState() {
-    contactSuccess.value = false
-    hasError.value = false
-    errorMessage.value = ''
-  }
-
   return {
     // Section metadata (from API)
     sections,
     isLoading,
     hasError,
     errorMessage,
-    isContactSubmitting,
-    contactSuccess,
     // Static content state
     services,
     faqs,
@@ -383,8 +345,6 @@ export const useWebsiteCorporateStore = defineStore('website-corporate', () => {
     aboutValues,
     testimonials,
     // Actions
-    loadSections,
-    submitContactForm,
-    resetContactState
+    loadSections
   }
 })
