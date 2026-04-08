@@ -169,9 +169,10 @@ const { scrollTo } = useScrollTo()
   gap: var(--ms-spacing-2xl);
   align-items: center;
   min-height: calc(100svh - var(--ms-navbar-height));
-  padding-top: clamp(2.5rem, 6vh, 5rem);
-  padding-bottom: clamp(2.5rem, 5vh, 4rem);
+  padding-top: clamp(1.5rem, 3vh, 3rem);
+  padding-bottom: 0;
   width: 100%;
+  max-width: 1440px; /* wider than default 1200px — fills more of the viewport */
 }
 
 .ms-hero__content {
@@ -181,13 +182,13 @@ const { scrollTo } = useScrollTo()
   gap: var(--ms-spacing-md);
   align-self: center;
   /* Push text above vertical midpoint — classic hero composition */
-  padding-bottom: clamp(3rem, 6vh, 5rem);
+  padding-bottom: clamp(2rem, 5vh, 4rem);
 }
 
 /* ── Right visual column — bottom-anchored, bleeds right ──── */
 .ms-hero__visual {
   display: flex;
-  align-items: flex-end;        /* image sits at the bottom of the column */
+  align-items: center;          /* image vertically centered in the column */
   justify-content: flex-start;  /* overflow goes RIGHT, not into the text */
   position: relative;
   align-self: stretch;          /* column fills the full grid row height */
@@ -217,8 +218,9 @@ const { scrollTo } = useScrollTo()
  *   - object-fit / object-position: not needed (natural dimensions).
  */
 .ms-hero__visual-img {
-  width: min(135%, 920px);
+  width: min(200%, 1400px);
   height: auto;
+  max-height: 92svh;
   display: block;
   position: relative;
   z-index: 1;
@@ -321,13 +323,16 @@ const { scrollTo } = useScrollTo()
     grid-template-columns: 1fr 1fr;
     gap: var(--ms-spacing-lg);
   }
-  /* Less bleed so subjects stay on-screen at narrower widths */
-  .ms-hero__visual-img { width: min(115%, 700px); }
+  /* Tablet landscape: back to width-driven, no height constraint */
+  .ms-hero__visual-img { width: min(165%, 1000px); height: auto; max-height: none; }
 }
 
-/* Ultra-wide monitors — allow slightly larger cap */
-@media (min-width: 1600px) {
-  .ms-hero__visual-img { width: min(135%, 1000px); }
+/* Desktop (≥1280px): let natural aspect ratio fill the hero height */
+@media (min-width: 1280px) {
+  .ms-hero__visual-img {
+    width: auto;
+    max-height: clamp(680px, 88svh, 1300px);
+  }
 }
 
 /* Tablet portrait (≤860px): stack vertically, show full image below text */
