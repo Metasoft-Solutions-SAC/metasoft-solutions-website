@@ -165,8 +165,8 @@ const { scrollTo } = useScrollTo()
   position: relative;
   z-index: 1;
   display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: var(--ms-spacing-2xl);
+  grid-template-columns: 5fr 7fr;
+  gap: var(--ms-spacing-lg);
   align-items: center;
   min-height: calc(100svh - var(--ms-navbar-height));
   padding-top: clamp(1.5rem, 3vh, 3rem);
@@ -220,7 +220,6 @@ const { scrollTo } = useScrollTo()
 .ms-hero__visual-img {
   width: min(200%, 1400px);
   height: auto;
-  max-height: 92svh;
   display: block;
   position: relative;
   z-index: 1;
@@ -323,15 +322,23 @@ const { scrollTo } = useScrollTo()
     grid-template-columns: 1fr 1fr;
     gap: var(--ms-spacing-lg);
   }
-  /* Tablet landscape: back to width-driven, no height constraint */
+  /* Tablet landscape: width-driven, no height constraint */
   .ms-hero__visual-img { width: min(165%, 1000px); height: auto; max-height: none; }
 }
 
-/* Desktop (≥1280px): let natural aspect ratio fill the hero height */
+/* Laptop+ (≥1280px): height forces the image to grow, width:auto keeps ratio */
 @media (min-width: 1280px) {
   .ms-hero__visual-img {
     width: auto;
-    max-height: clamp(680px, 88svh, 1300px);
+    height: clamp(600px, 86svh, 1400px);
+    max-height: none;
+  }
+}
+
+/* Large monitors (≥1600px) */
+@media (min-width: 1600px) {
+  .ms-hero__visual-img {
+    height: clamp(700px, 90svh, 1800px);
   }
 }
 
