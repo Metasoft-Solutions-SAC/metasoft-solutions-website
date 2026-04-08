@@ -66,7 +66,7 @@ onUnmounted(() => {
       </a>
 
       <!-- Desktop Nav -->
-      <nav class="ms-navbar__nav hide-mobile" aria-label="Navegación principal">
+      <nav class="ms-navbar__nav" aria-label="Navegación principal">
         <ul role="list">
           <li v-for="link in navLinks" :key="link.href">
             <a 
@@ -82,7 +82,7 @@ onUnmounted(() => {
       </nav>
 
       <!-- Desktop CTA -->
-      <div class="ms-navbar__actions hide-mobile">
+      <div class="ms-navbar__actions">
         <button type="button" class="ms-btn ms-btn-primary ms-btn-glow" @click="scrollTo('#contacto')">
           Consulta Gratuita
         </button>
@@ -91,7 +91,7 @@ onUnmounted(() => {
       <!-- Mobile Toggle -->
       <button 
         type="button"
-        class="ms-navbar__toggle hide-desktop" 
+        class="ms-navbar__toggle" 
         @click="drawerVisible = true"
         aria-label="Abrir menú"
         :aria-expanded="String(drawerVisible)"
@@ -155,14 +155,27 @@ onUnmounted(() => {
   box-shadow: 0 4px 30px rgba(0, 0, 0, 0.5);
 }
 
-/* Mobile: always show a solid background so the navbar is visible.
-   Avoid backdrop-filter on mobile — WebKit bug causes icon children
-   (e.g. pi-bars) to vanish when backdrop-filter is on a position:fixed parent. */
-@media (max-width: 768px) {
+/* ── Desktop nav: visible above 1100px ─────────────────── */
+.ms-navbar__nav { display: flex; }
+.ms-navbar__actions { display: flex; }
+.ms-navbar__toggle { display: none; }
+
+/* ── Collapse to hamburger at ≤1100px ─────────────────────
+   Avoid backdrop-filter on mobile/tablet — WebKit bug causes
+   children (e.g. pi-bars) to vanish on position: fixed parents */
+@media (max-width: 1100px) {
   .ms-navbar {
     background: rgba(5, 8, 20, 0.94);
     border-bottom: 1px solid rgba(255, 255, 255, 0.08);
   }
+  .ms-navbar__nav     { display: none; }
+  .ms-navbar__actions { display: none; }
+  .ms-navbar__toggle  { display: flex; }
+}
+
+/* ── De-clutter link gaps on mid-size desktops ─────────── */
+@media (max-width: 1280px) and (min-width: 1101px) {
+  .ms-navbar__nav ul { gap: var(--ms-spacing-lg); } /* 1.5rem instead of 2rem */
 }
 
 .ms-navbar__inner {

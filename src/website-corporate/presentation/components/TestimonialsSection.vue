@@ -848,6 +848,10 @@ onUnmounted(() => {
   .ms-testimonials-cta__inner .ms-btn { width: 100%; justify-content: center; }
 }
 
+@media (max-width: 480px) {
+  .ms-testimonials-cta__inner { padding: var(--ms-spacing-lg); }
+}
+
 /* ── Peek carousel — mobile ────────────────────────────── */
 @media (max-width: 640px) {
   .ms-pcarousel-track-wrap {

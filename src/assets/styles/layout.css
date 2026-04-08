@@ -12,6 +12,13 @@
   padding-right: var(--ms-spacing-xl);
 }
 
+@media (min-width: 1400px) {
+  .ms-container {
+    padding-left: var(--ms-spacing-2xl);
+    padding-right: var(--ms-spacing-2xl);
+  }
+}
+
 @media (max-width: 768px) {
   .ms-container {
     padding-left: var(--ms-spacing-lg);
@@ -37,6 +44,17 @@
   .ms-section {
     padding-top: var(--ms-spacing-4xl);
     padding-bottom: var(--ms-spacing-4xl);
+  }
+}
+
+/* Compact section spacing on small phones */
+@media (max-width: 480px) {
+  .ms-section {
+    padding-top: var(--ms-spacing-3xl);
+    padding-bottom: var(--ms-spacing-3xl);
+  }
+  .ms-section-header {
+    margin-bottom: var(--ms-spacing-2xl);
   }
 }
 

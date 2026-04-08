@@ -484,5 +484,9 @@ onUnmounted(() => statsObserver?.disconnect())
   }
 }
 
+@media (max-width: 480px) {
+  .ms-about-cta__inner { padding: var(--ms-spacing-lg); }
+}
+
 .mb-md { margin-bottom: var(--ms-spacing-md); }
 </style>

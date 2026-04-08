@@ -153,6 +153,11 @@ const { scrollTo } = useScrollTo()
   .ms-services-grid { grid-template-columns: 1fr; }
 }
 
+/* Extra padding reduction on small phones */
+@media (max-width: 480px) {
+  .ms-services-banner__inner { padding: var(--ms-spacing-lg); }
+}
+
 /* ── Card ──────────────────────────────────────── */
 .ms-service-card {
   display: flex;

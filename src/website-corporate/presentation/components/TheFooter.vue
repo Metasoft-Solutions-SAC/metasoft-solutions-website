@@ -254,6 +254,11 @@ const { scrollTo } = useScrollTo()
   }
 }
 
+@media (max-width: 480px) {
+  .ms-footer__top { padding: var(--ms-spacing-xl) 0 var(--ms-spacing-2xl); }
+  .ms-footer__nav-title { margin-bottom: var(--ms-spacing-md); }
+}
+
 .mt-md { margin-top: var(--ms-spacing-md); }
 .mt-lg { margin-top: var(--ms-spacing-lg); }
 .text-secondary { color: var(--ms-text-secondary); }

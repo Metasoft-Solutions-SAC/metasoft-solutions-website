@@ -190,7 +190,7 @@ onUnmounted(() => progressObserver?.disconnect())
 }
 
 .ms-tech-heading {
-  font-size: var(--ms-font-size-4xl);
+  font-size: clamp(var(--ms-font-size-2xl), 5vw, var(--ms-font-size-4xl));
   font-weight: 800;
   letter-spacing: -0.03em;
   margin: 0;

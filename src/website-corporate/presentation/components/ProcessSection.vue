@@ -360,5 +360,9 @@ const { scrollTo } = useScrollTo()
   }
 }
 
+@media (max-width: 480px) {
+  .ms-process-cta__inner { padding: var(--ms-spacing-lg); }
+}
+
 .mb-md { margin-bottom: var(--ms-spacing-md); }
 </style>

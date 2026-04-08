@@ -65,10 +65,10 @@ const scrollingTechs = computed(() => [...featuredTechs.value, ...featuredTechs.
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background: linear-gradient(90deg, 
-    var(--ms-bg-primary) 0%, 
+    var(--ms-bg-surface-2) 0%, 
     transparent 15%, 
     transparent 85%, 
-    var(--ms-bg-primary) 100%
+    var(--ms-bg-surface-2) 100%
   );
   z-index: 2;
   pointer-events: none;

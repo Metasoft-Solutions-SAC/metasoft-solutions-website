@@ -127,7 +127,7 @@ function toggle(id) {
 }
 
 .ms-faq-header h2 {
-  font-size: var(--ms-font-size-4xl);
+  font-size: clamp(var(--ms-font-size-2xl), 5vw, var(--ms-font-size-4xl));
   font-weight: 800;
   letter-spacing: -0.03em;
   line-height: var(--ms-leading-tight);
@@ -155,6 +155,12 @@ function toggle(id) {
     grid-template-columns: 1fr;
     gap: var(--ms-spacing-2xl);
   }
+}
+
+/* On mobile the aside stacks above the FAQ list */
+@media (max-width: 640px) {
+  .ms-faq-cta { padding: var(--ms-spacing-lg); }
+  .ms-faq-topics li { padding: var(--ms-spacing-xs) var(--ms-spacing-sm); }
 }
 
 /* ── Left aside ─────────────────────────────────────── */

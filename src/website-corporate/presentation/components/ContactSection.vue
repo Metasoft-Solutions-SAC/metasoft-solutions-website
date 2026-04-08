@@ -124,7 +124,7 @@
 .ms-contact__layout {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: var(--ms-spacing-4xl);
+  gap: clamp(var(--ms-spacing-2xl), 5vw, var(--ms-spacing-4xl));
   align-items: center;
   padding: var(--ms-spacing-4xl) 0;
 }
@@ -133,6 +133,13 @@
   .ms-contact__layout {
     grid-template-columns: 1fr;
     gap: var(--ms-spacing-3xl);
+  }
+}
+
+@media (max-width: 480px) {
+  .ms-contact__layout {
+    padding: var(--ms-spacing-2xl) 0;
+    gap: var(--ms-spacing-2xl);
   }
 }
 

@@ -1,5 +1,6 @@
 <script setup>
 import { useScrollTo } from '../composables/useScrollTo.js'
+import bgMetasoftUrl from '../../../assets/img/background-metasoft.png'
 
 const { scrollTo } = useScrollTo()
 </script>
@@ -14,6 +15,8 @@ const { scrollTo } = useScrollTo()
     </div>
 
     <div class="ms-container ms-hero__inner">
+
+      <!-- Left: text content -->
       <div class="ms-hero__content">
 
         <div class="ms-hero__badge-container">
@@ -53,6 +56,19 @@ const { scrollTo } = useScrollTo()
         </div>
 
       </div>
+
+      <!-- Right: hero visual -->
+      <div class="ms-hero__visual" data-aos="fade-left" data-aos-delay="300" aria-hidden="true">
+        <img
+          :src="bgMetasoftUrl"
+          alt="Equipo de desarrollo de software Metasoft Solutions"
+          class="ms-hero__visual-img"
+          width="860"
+          height="720"
+          fetchpriority="high"
+        />
+      </div>
+
     </div>
 
     <a class="ms-hero__scroll-hint" @click.prevent="scrollTo('#servicios')" href="#servicios">
@@ -68,10 +84,8 @@ const { scrollTo } = useScrollTo()
   display: flex;
   align-items: center;
   padding-top: var(--ms-navbar-height);
-  background-image: url('/background.png');
-  background-size: cover;
-  background-position: center right;
-  background-repeat: no-repeat;
+  background-color: #02060e;
+  overflow: hidden;
 }
 
 .ms-hero__bg {
@@ -82,75 +96,142 @@ const { scrollTo } = useScrollTo()
   overflow: hidden;
 }
 
+/* Left vignette — keeps text readable without darkening the image area */
 .ms-hero__bg::after {
   content: '';
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    to right,
-    #0A0F1C 40%,
-    rgba(10, 15, 28, 0.80) 58%,
-    rgba(10, 15, 28, 0.25) 78%,
-    transparent 100%
-  );
+  background:
+    linear-gradient(to right, rgba(2, 6, 14, 0.92) 0%, rgba(2, 6, 14, 0.65) 45%, rgba(2, 6, 14, 0.05) 75%, transparent 100%),
+    linear-gradient(to bottom, transparent 60%, rgba(2, 6, 14, 0.7) 100%);
 }
 
 .ms-hero__grid {
   position: absolute;
   inset: 0;
-  background-image: 
-    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
-    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
-  background-size: 40px 40px;
-  mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
-  -webkit-mask-image: linear-gradient(to bottom, black 40%, transparent 100%);
+  /* Circuit-board: cyan intersection nodes + subtle grid lines */
+  background-image:
+    radial-gradient(circle, rgba(14, 165, 233, 0.22) 1.5px, transparent 1.5px),
+    linear-gradient(to right,  rgba(14, 165, 233, 0.07) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(14, 165, 233, 0.07) 1px, transparent 1px);
+  background-size: 40px 40px, 40px 40px, 40px 40px;
+  mask-image: linear-gradient(135deg, black 0%, black 55%, transparent 85%);
+  -webkit-mask-image: linear-gradient(135deg, black 0%, black 55%, transparent 85%);
+}
+
+/* Scan-line overlay for extra depth */
+.ms-hero__bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    to bottom,
+    transparent,
+    transparent 3px,
+    rgba(0, 0, 0, 0.06) 3px,
+    rgba(0, 0, 0, 0.06) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
 }
 
 .ms-hero__glow {
   position: absolute;
-  width: 60vw;
-  height: 60vw;
   border-radius: 50%;
-  filter: blur(100px);
-  opacity: 0.15;
+  filter: blur(110px);
   animation: float 8s ease-in-out infinite alternate;
 }
 
 .ms-hero__glow--1 {
-  top: -20%;
-  left: -10%;
+  width: min(55vw, 900px);
+  height: min(55vw, 900px);
+  top: -15%;
+  left: -15%;
   background: var(--ms-brand-primary);
+  opacity: 0.18;
 }
 
 .ms-hero__glow--2 {
-  bottom: -20%;
-  right: -10%;
+  width: min(45vw, 750px);
+  height: min(45vw, 750px);
+  bottom: -10%;
+  right: 5%;
   background: var(--ms-brand-secondary);
+  opacity: 0.14;
   animation-delay: -4s;
 }
 
 .ms-hero__inner {
   position: relative;
   z-index: 1;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  text-align: left;
-  /* Responsive vertical padding — avoids overflow on short viewports */
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--ms-spacing-2xl);
+  align-items: center;
+  min-height: calc(100svh - var(--ms-navbar-height));
   padding-top: clamp(2.5rem, 6vh, 5rem);
-  padding-bottom: clamp(4rem, 8vh, 6rem);
-  padding-left: clamp(2rem, 5vw, 7rem);
-  margin-left: 0;
-  margin-right: auto;
+  padding-bottom: clamp(2.5rem, 5vh, 4rem);
   width: 100%;
 }
 
 .ms-hero__content {
-  max-width: min(52%, 660px);
   display: flex;
   flex-direction: column;
   align-items: flex-start;
   gap: var(--ms-spacing-md);
+  align-self: center;
+  /* Push text above vertical midpoint — classic hero composition */
+  padding-bottom: clamp(3rem, 6vh, 5rem);
+}
+
+/* ── Right visual column — bottom-anchored, bleeds right ──── */
+.ms-hero__visual {
+  display: flex;
+  align-items: flex-end;        /* image sits at the bottom of the column */
+  justify-content: flex-start;  /* overflow goes RIGHT, not into the text */
+  position: relative;
+  align-self: stretch;          /* column fills the full grid row height */
+  overflow: visible;            /* allow right bleed (section clips it) */
+}
+
+/* Ambient glow behind the image */
+.ms-hero__visual::before {
+  content: '';
+  position: absolute;
+  bottom: -5%;
+  left: -5%;
+  right: -20%;
+  top: 5%;
+  background: radial-gradient(ellipse at 45% 80%, rgba(14, 165, 233, 0.22) 0%, transparent 60%);
+  pointer-events: none;
+  z-index: 0;
+}
+
+/*
+ * Key sizing logic:
+ *   - width: min(135%, 920px)  → image is 135% of its column width
+ *     At a ~570px column (1200px layout): 770px wide → 646px tall.
+ *     The ~200px that exceeds the column bleeds off the right edge,
+ *     clipped by  overflow:hidden  on .ms-hero. Text is never overlapped.
+ *   - height: auto  → pure aspect-ratio scaling, zero pillarboxing.
+ *   - object-fit / object-position: not needed (natural dimensions).
+ */
+.ms-hero__visual-img {
+  width: min(135%, 920px);
+  height: auto;
+  display: block;
+  position: relative;
+  z-index: 1;
+  filter:
+    drop-shadow(0 0 40px rgba(14, 165, 233, 0.30))
+    drop-shadow(0 30px 80px rgba(14, 165, 233, 0.18))
+    drop-shadow(0 4px 24px rgba(0, 0, 0, 0.7));
+  animation: hero-float 7s ease-in-out infinite alternate;
+}
+
+@keyframes hero-float {
+  from { transform: translateY(0px); }
+  to   { transform: translateY(-10px); }
 }
 
 .ms-hero__title {
@@ -229,75 +310,62 @@ const { scrollTo } = useScrollTo()
 
 /* ── Responsive ─────────────────────────────────── */
 
-/* Large laptop & below (≤1280px): reduce padding, allow wider content */
+/* Large laptop (≤1280px) — tighten gap */
 @media (max-width: 1280px) {
-  .ms-hero__inner {
-    padding-left: clamp(2rem, 4vw, 4rem);
-  }
-  .ms-hero__content {
-    max-width: min(58%, 660px);
-  }
+  .ms-hero__inner { gap: var(--ms-spacing-xl); }
 }
 
-/* Laptop / tablet landscape (≤1024px): full-width content, center overlay */
-@media (max-width: 1024px) {
+/* Tablet landscape (≤1100px) — symmetric columns, smaller bleed */
+@media (max-width: 1100px) {
   .ms-hero__inner {
-    padding-left: 2.5rem;
-    padding-right: 2.5rem;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--ms-spacing-lg);
   }
-  .ms-hero__content {
-    max-width: 70%;
-  }
-  .ms-hero__bg::after {
-    background: linear-gradient(
-      to right,
-      rgba(10, 15, 28, 0.92) 50%,
-      rgba(10, 15, 28, 0.55) 80%,
-      rgba(10, 15, 28, 0.2) 100%
-    );
-  }
+  /* Less bleed so subjects stay on-screen at narrower widths */
+  .ms-hero__visual-img { width: min(115%, 700px); }
 }
 
-/* Tablet portrait (≤768px): single column, full width */
-@media (max-width: 768px) {
+/* Ultra-wide monitors — allow slightly larger cap */
+@media (min-width: 1600px) {
+  .ms-hero__visual-img { width: min(135%, 1000px); }
+}
+
+/* Tablet portrait (≤860px): stack vertically, show full image below text */
+@media (max-width: 860px) {
   .ms-hero__inner {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-    align-items: center;
+    grid-template-columns: 1fr;
     text-align: center;
+    min-height: auto;
+    padding-bottom: 0;
   }
   .ms-hero__content {
-    max-width: 100%;
     align-items: center;
+    order: 1;
+    padding-bottom: var(--ms-spacing-xl);
+    align-self: auto;
   }
-  .ms-hero__pills {
-    justify-content: center;
+  .ms-hero__visual {
+    order: 2;
+    align-self: auto;
+    justify-content: center; /* center when stacked */
+    overflow: hidden;        /* no bleed when stacked */
   }
-  .ms-hero__ctas {
-    justify-content: center;
+  .ms-hero__visual-img {
+    /* Full natural image, centered, no bleed */
+    width: 90%;
+    max-width: 500px;
   }
-  .ms-hero__bg::after {
-    background: rgba(10, 15, 28, 0.80);
-  }
+  .ms-hero__pills  { justify-content: center; }
+  .ms-hero__ctas   { justify-content: center; }
+  .ms-hero__slogan { justify-content: center; }
 }
 
-/* Mobile (≤640px): stacked CTAs, smaller type */
+/* Mobile (≤640px): hide image, full-width CTAs */
 @media (max-width: 640px) {
-  .ms-hero__inner {
-    padding-left: 1rem;
-    padding-right: 1rem;
-  }
-  .ms-hero__ctas {
-    flex-direction: column;
-    width: 100%;
-  }
-  .ms-btn {
-    width: 100%;
-    text-align: center;
-  }
-  .ms-hero__subtitle {
-    font-size: var(--ms-font-size-base);
-  }
+  .ms-hero__visual { display: none; }
+  .ms-hero__ctas { flex-direction: column; width: 100%; }
+  .ms-btn { width: 100%; text-align: center; }
+  .ms-hero__subtitle { font-size: var(--ms-font-size-base); }
 }
 
 .ms-hero__scroll-hint {
